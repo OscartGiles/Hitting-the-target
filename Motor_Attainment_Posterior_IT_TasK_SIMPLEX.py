@@ -56,9 +56,9 @@ sm = pickle.load(open('Ordered_Probit.pkl', 'rb')) #Load Stan Model
 #sm = pystan.StanModel(file='Ordered_Probit.Stan') #Compile Stan Model
 #with open('Ordered_Probit.pkl', 'wb') as f: #Save Stan model to file
 #    pickle.dump(sm, f)
-#    
+    
    
-resample = True
+resample = False
 attainment_metric = ['Attainment_Maths', 'Attainment_Reading', 'Attainment_Writing']
 
 if resample:
@@ -87,69 +87,29 @@ if resample:
 else:
     post_la = pickle.load(open("IT_PREDICTS_MATHS_LA.pkl")) #Load fit from file
 
-#
-#resample_submodels = False
-#if resample_submodels:   
-#    
-#    post_la_no_it = {}
-#    for atn in attainment_metric:
-#        
-#        patsy_str = "{} ~ 0 + age + interception + Ckat_Tracing + Ckat_aiming + Ckat_Tracking + Open + Closed".format(atn)
-#        print(patsy_str)
-#        Y, X = patsy.dmatrices(patsy_str, data = data) #Create lower Design Matrices        
-#        X = np.asarray(X)
-#        X = X[:,[0,2,3,4,5,6]]
-#        
-#        Y = np.asarray(Y).flatten().astype(int)
-#        
-#        stan_data = dict(y = Y, x = X, N = len(Y), K = np.unique(Y).shape[0],
-#                         D = X.shape[1]) #Stan data with corrections made so all integer variables start at 1 (for Stan)
-#        
-#        fit = sm.sampling(data=stan_data, iter = 10000, chains=4, refresh = 10, init = "0") #Fit model  
-#        
-#        
-#        post_la_no_it[atn] = fit.extract(permuted=True) #Extract fit and save to file
-#        with open('print_fit_no_it{}.txt'.format(atn), 'wb') as f: #Save fit print output to file
-#            print(fit, file=f)      
-#        
-#      
-#        log_lik = post_la_no_it[atn]['log_lik']            
-#        np.savetxt("log_lik_no_it{}.csv".format(atn), log_lik, delimiter=',')
-#        
-#        del log_lik
-#        del post_la_no_it[atn]['log_lik']       
-#
-#    
-#    with open('IT_PREDICTS_MATHS_LA_no_it.pkl', 'wb') as f:
-#        pickle.dump(post_la_no_it, f)
-#else:
-#    post_la_no_it = pickle.load(open("IT_PREDICTS_MATHS_LA_no_it.pkl")) #Load fit from file
-#    
-#
-#
-#
-#f,ax = plt.subplots(3,1, sharex = True, sharey = True)
-#i = 0
-#for atn in attainment_metric:
-#    
-#    sp.errorplot(['age', 'interception', 'Ckat_Tracing', 'Ckat_aiming', 
-#    'Ckat_Tracking', 'Open', 'Closed'], post_la[atn]['beta'], ax = ax[i],
-#    ls = "None")
-#    ax[i].set_xlabel(atn)
-#    i += 1
-#
-#
-#####Plotting function######
-#def my_formatter(x, pos):
-#    """Format 1 as 1, 0 as 0, and all values whose absolute values is between
-#    0 and 1 without the leading "0." (e.g., 0.7 is formatted as .7 and -0.4 is
-#    formatted as -.4)."""
-#    val_str = '{:g}'.format(x)
-#    if np.abs(x) > 0 and np.abs(x) < 1:
-#        return val_str.replace("0", "", 1)
-#    else:
-#        return val_str
-#
+
+f,ax = plt.subplots(3,1, sharex = True, sharey = True)
+i = 0
+for atn in attainment_metric:
+    
+    sp.errorplot(['b0', 'age', 'interception', 'Ckat_Tracing', 'Ckat_aiming', 
+    'Ckat_Tracking', 'Open', 'Closed'], post_la[atn]['beta'], ax = ax[i],
+    ls = "None")
+    ax[i].set_xlabel(atn)
+    i += 1
+
+
+####Plotting function######
+def my_formatter(x, pos):
+    """Format 1 as 1, 0 as 0, and all values whose absolute values is between
+    0 and 1 without the leading "0." (e.g., 0.7 is formatted as .7 and -0.4 is
+    formatted as -.4)."""
+    val_str = '{:g}'.format(x)
+    if np.abs(x) > 0 and np.abs(x) < 1:
+        return val_str.replace("0", "", 1)
+    else:
+        return val_str
+
 ##-------------------------------------------------#
 ##-------------------------------------------------#
 ##--------------------PPC--------------------------#
@@ -157,222 +117,222 @@ else:
 ##-------------------------------------------------#
 ##-------------------------------------------------#
 ##-------------------------------------------------#
-##atn = attainment_metric[0]
-##
-##samples = np.array([1,3,5,8], dtype = np.int)
-##patsy_str = "{} ~ 0 + age + interception + Ckat_Tracing + Ckat_aiming + Ckat_Tracking + Open + Closed".format(atn)
-##print(patsy_str)
-##Y, X = patsy.dmatrices(patsy_str, data = data) #Create lower Design Matrices
-##y_rep = np.empty((len(samples), Y.shape[0]), dtype = np.int)
-##
-##
-##for s in samples:
-##    theta = np.empty((Y.shape[0], np.unique(Y).shape[0]))
-##    
-##    eta = np.dot(X, post_la[atn]['beta'][s])
-##    
-##    theta[:, 0] = 1 - sts.norm.cdf(eta - post_la[atn]['c'][s,0])
-##    
-##    for k in xrange(1,np.unique(Y).shape[0]-2):
-##        theta[:, k] = sts.norm.cdf(eta - post_la[atn]['c'][s,k-1]) - sts.norm.cdf(eta - post_la[atn]['c'][s,k])
-##        
-##    theta[:,np.unique(Y).shape[0]-1] = sts.norm.cdf(eta - post_la[atn]['c'][s,-1])
-##    
-##    
-##    for p in xrange(Y.shape[0]):
-##        y_rep[s, p] = np.dot(xrange(1,15), np.random.multinomial(1, theta[p]))
-##
+#atn = attainment_metric[0]
 #
-##beta ~ normal(0, K);
-##
-##	for (n in 1:N) {
-##		real eta;
-##		eta <- x[n] * beta;
-##		theta[1] <- 1 - Phi(eta - c[1]);
-##		for (k in 2:(K-1)){
-##			theta[k] <- Phi(eta - c[k-1]) - Phi(eta - c[k]);
-##		}
-##		theta[K] <- Phi(eta - c[K-1]);
-##		y[n] ~ categorical(theta);
-##	}
-##        
+#samples = np.array([1,3,5,8], dtype = np.int)
+#patsy_str = "{} ~ 0 + age + interception + Ckat_Tracing + Ckat_aiming + Ckat_Tracking + Open + Closed".format(atn)
+#print(patsy_str)
+#Y, X = patsy.dmatrices(patsy_str, data = data) #Create lower Design Matrices
+#y_rep = np.empty((len(samples), Y.shape[0]), dtype = np.int)
+#
+#
+#for s in samples:
+#    theta = np.empty((Y.shape[0], np.unique(Y).shape[0]))
+#    
+#    eta = np.dot(X, post_la[atn]['beta'][s])
+#    
+#    theta[:, 0] = 1 - sts.norm.cdf(eta - post_la[atn]['c'][s,0])
+#    
+#    for k in xrange(1,np.unique(Y).shape[0]-2):
+#        theta[:, k] = sts.norm.cdf(eta - post_la[atn]['c'][s,k-1]) - sts.norm.cdf(eta - post_la[atn]['c'][s,k])
+#        
+#    theta[:,np.unique(Y).shape[0]-1] = sts.norm.cdf(eta - post_la[atn]['c'][s,-1])
+#    
+#    
+#    for p in xrange(Y.shape[0]):
+#        y_rep[s, p] = np.dot(xrange(1,15), np.random.multinomial(1, theta[p]))
+#
+#
+#beta ~ normal(0, K);
+#
+#	for (n in 1:N) {
+#		real eta;
+#		eta <- x[n] * beta;
+#		theta[1] <- 1 - Phi(eta - c[1]);
+#		for (k in 2:(K-1)){
+#			theta[k] <- Phi(eta - c[k-1]) - Phi(eta - c[k]);
+#		}
+#		theta[K] <- Phi(eta - c[K-1]);
+#		y[n] ~ categorical(theta);
+#	}
+#        
 #####PLOT BETA VALUES
-#        
-###Math
-#sns.set_context("paper")
-#sns.set_style("white")
-#plt.figure(figsize = (7.2, 5.5))
-#beta_colors = sns.color_palette("Set1", 4)
-#sigma_colors = sns.color_palette("hls", 1)
-#
-#ax_math_intercept = plt.subplot2grid((3, 4), (0, 0), colspan = 1)
-#ax_math_slope1 = plt.subplot2grid((3, 4), (0, 1), colspan = 1)
-#ax_math_slope2 = plt.subplot2grid((3, 4), (0, 2), colspan = 1)
-#ax_math_sigma = plt.subplot2grid((3, 4), (0, 3), colspan = 1)
-#
-#sns.kdeplot(post_la['Attainment_Maths']['beta_0_new'], color = beta_colors[0], shade = True, ax = ax_math_intercept, legend = False)
-#sns.kdeplot(post_la['Attainment_Maths']['beta_new'][:,0], color = beta_colors[1], shade = True, ax = ax_math_slope1, legend = False)
-#sns.kdeplot(post_la['Attainment_Maths']['beta_new'][:,1], color = beta_colors[2], shade = True, ax = ax_math_slope2, legend = False)
-#
-#ax_math_slope2.axvline(0, linestyle = 'dashed', color = 'k')
-#
-#sp.plot_HDI(post_la['Attainment_Maths']['beta_new'][:,1], y_value = 5.1, axis = ax_math_slope2, fmt = 'o')
-#sns.kdeplot(post_la['Attainment_Maths']['new_sig'], color = beta_colors[3], shade = True, ax = ax_math_sigma, legend = False)
-#
-#
+        
+##Math
+sns.set_context("paper")
+sns.set_style("white")
+plt.figure(figsize = (7.2, 5.5))
+beta_colors = sns.color_palette("Set1", 4)
+sigma_colors = sns.color_palette("hls", 1)
+
+ax_math_intercept = plt.subplot2grid((3, 4), (0, 0), colspan = 1)
+ax_math_slope1 = plt.subplot2grid((3, 4), (0, 1), colspan = 1)
+ax_math_slope2 = plt.subplot2grid((3, 4), (0, 2), colspan = 1)
+ax_math_sigma = plt.subplot2grid((3, 4), (0, 3), colspan = 1)
+
+sns.kdeplot(post_la['Attainment_Maths']['beta'][:,0], color = beta_colors[0], shade = True, ax = ax_math_intercept, legend = False)
+sns.kdeplot(post_la['Attainment_Maths']['beta'][:,1], color = beta_colors[1], shade = True, ax = ax_math_slope1, legend = False)
+sns.kdeplot(post_la['Attainment_Maths']['beta'][:,2], color = beta_colors[2], shade = True, ax = ax_math_slope2, legend = False)
+
+ax_math_slope2.axvline(0, linestyle = 'dashed', color = 'k')
+
+sp.plot_HDI(post_la['Attainment_Maths']['beta'][:,2], y_value = 5.1, axis = ax_math_slope2, fmt = 'o')
+sns.kdeplot(post_la['Attainment_Maths']['sigma'], color = beta_colors[3], shade = True, ax = ax_math_sigma, legend = False)
+
+
 ###Reading
-#
-#ax_reading_intercept = plt.subplot2grid((3, 4), (1, 0), colspan = 1, sharex = ax_math_intercept, sharey = ax_math_intercept)
-#ax_reading_slope1 = plt.subplot2grid((3, 4), (1, 1), colspan = 1, sharex = ax_math_slope1, sharey = ax_math_slope1)
-#ax_reading_slope2 = plt.subplot2grid((3, 4), (1, 2), colspan = 1, sharex = ax_math_slope2, sharey = ax_math_slope2)
-#ax_reading_sigma = plt.subplot2grid((3, 4), (1, 3), colspan = 1, sharex = ax_math_sigma, sharey = ax_math_sigma)
-#
-#sns.kdeplot(post_la['Attainment_Reading']['beta_0_new'], color = beta_colors[0], shade = True, ax = ax_reading_intercept, legend = False)
-#sns.kdeplot(post_la['Attainment_Reading']['beta_new'][:,0], color = beta_colors[1], shade = True, ax = ax_reading_slope1, legend = False)
-#sns.kdeplot(post_la['Attainment_Reading']['beta_new'][:,1], color = beta_colors[2], shade = True, ax = ax_reading_slope2, legend = False)
-#
-#ax_reading_slope2.axvline(0, linestyle = 'dashed', color = 'k')
-#
-#sp.plot_HDI(post_la['Attainment_Reading']['beta_new'][:,1], y_value = 5.1, axis = ax_reading_slope2, fmt = 'o')
-#sns.kdeplot(post_la['Attainment_Reading']['new_sig'], color = beta_colors[3], shade = True, ax = ax_reading_sigma, legend = False)
-#
-#
-#
+
+ax_reading_intercept = plt.subplot2grid((3, 4), (1, 0), colspan = 1, sharex = ax_math_intercept, sharey = ax_math_intercept)
+ax_reading_slope1 = plt.subplot2grid((3, 4), (1, 1), colspan = 1, sharex = ax_math_slope1, sharey = ax_math_slope1)
+ax_reading_slope2 = plt.subplot2grid((3, 4), (1, 2), colspan = 1, sharex = ax_math_slope2, sharey = ax_math_slope2)
+ax_reading_sigma = plt.subplot2grid((3, 4), (1, 3), colspan = 1, sharex = ax_math_sigma, sharey = ax_math_sigma)
+
+sns.kdeplot(post_la['Attainment_Reading']['beta'][:,0], color = beta_colors[0], shade = True, ax = ax_reading_intercept, legend = False)
+sns.kdeplot(post_la['Attainment_Reading']['beta'][:,1], color = beta_colors[1], shade = True, ax = ax_reading_slope1, legend = False)
+sns.kdeplot(post_la['Attainment_Reading']['beta'][:,2], color = beta_colors[2], shade = True, ax = ax_reading_slope2, legend = False)
+
+ax_reading_slope2.axvline(0, linestyle = 'dashed', color = 'k')
+
+sp.plot_HDI(post_la['Attainment_Reading']['beta'][:,2], y_value = 5.1, axis = ax_reading_slope2, fmt = 'o')
+sns.kdeplot(post_la['Attainment_Reading']['sigma'], color = beta_colors[3], shade = True, ax = ax_reading_sigma, legend = False)
+
+
+
 ###Writing
-#
-#ax_writing_intercept = plt.subplot2grid((3, 4), (2, 0), colspan = 1, sharex = ax_math_intercept, sharey = ax_math_intercept)
-#ax_writing_slope1 = plt.subplot2grid((3, 4), (2, 1), colspan = 1, sharex = ax_math_slope1, sharey = ax_math_slope1)
-#ax_writing_slope2 = plt.subplot2grid((3, 4), (2, 2), colspan = 1, sharex = ax_math_slope2, sharey = ax_math_slope2)
-#ax_writing_sigma = plt.subplot2grid((3, 4), (2, 3), colspan = 1, sharex = ax_math_sigma, sharey = ax_math_sigma)
-#
-#sns.kdeplot(post_la['Attainment_Writing']['beta_0_new'], color = beta_colors[0], shade = True, ax = ax_writing_intercept, legend = False)
-#sns.kdeplot(post_la['Attainment_Writing']['beta_new'][:,0], color = beta_colors[1], shade = True, ax = ax_writing_slope1, legend = False)
-#sns.kdeplot(post_la['Attainment_Writing']['beta_new'][:,1], color = beta_colors[2], shade = True, ax = ax_writing_slope2, legend = False)
-#
-#ax_writing_slope2.axvline(0, linestyle = 'dashed', color = 'k')
-#
-#sp.plot_HDI(post_la['Attainment_Writing']['beta_new'][:,1], y_value = 5.1, axis = ax_writing_slope2, fmt = 'o')
-#sns.kdeplot(post_la['Attainment_Writing']['new_sig'], color = beta_colors[3], shade = True, ax = ax_writing_sigma, legend = False)
-#
-#
-#sns.despine()
-#
-#
-#
-#
-#
+
+ax_writing_intercept = plt.subplot2grid((3, 4), (2, 0), colspan = 1, sharex = ax_math_intercept, sharey = ax_math_intercept)
+ax_writing_slope1 = plt.subplot2grid((3, 4), (2, 1), colspan = 1, sharex = ax_math_slope1, sharey = ax_math_slope1)
+ax_writing_slope2 = plt.subplot2grid((3, 4), (2, 2), colspan = 1, sharex = ax_math_slope2, sharey = ax_math_slope2)
+ax_writing_sigma = plt.subplot2grid((3, 4), (2, 3), colspan = 1, sharex = ax_math_sigma, sharey = ax_math_sigma)
+
+sns.kdeplot(post_la['Attainment_Writing']['beta'][:,0], color = beta_colors[0], shade = True, ax = ax_writing_intercept, legend = False)
+sns.kdeplot(post_la['Attainment_Writing']['beta'][:,1], color = beta_colors[1], shade = True, ax = ax_writing_slope1, legend = False)
+sns.kdeplot(post_la['Attainment_Writing']['beta'][:,2], color = beta_colors[2], shade = True, ax = ax_writing_slope2, legend = False)
+
+ax_writing_slope2.axvline(0, linestyle = 'dashed', color = 'k')
+
+sp.plot_HDI(post_la['Attainment_Writing']['beta'][:,2], y_value = 5.1, axis = ax_writing_slope2, fmt = 'o')
+sns.kdeplot(post_la['Attainment_Writing']['sigma'], color = beta_colors[3], shade = True, ax = ax_writing_sigma, legend = False)
+
+
+sns.despine()
+
+
+
+
+
 #######Labels and axis limits#####
-#
-#label_pad = 15
-#fs = 18
-#
-#ax_writing_intercept.set_xlabel(r"$\alpha$", labelpad = label_pad, fontsize = fs)
-##ax_reading_intercept.set_ylabel("Density")
-#
-#ax_writing_slope1.set_xlabel(r"$\beta_1$ (Age)", labelpad = label_pad, fontsize = fs)
-#ax_writing_slope2.set_xlabel(r"$\beta_2$ (IT Score)", labelpad = label_pad, fontsize = fs)
-#
-##ax_writing_slope2.set_ylim([0, 45])
-##ax_writing_slope2.set_xlim([-0.01, 0.08])
-#ax_writing_sigma.set_xlabel(r"$\sigma$ (SD)", labelpad = label_pad, fontsize = fs)
-#
-#ax_writing_intercept.xaxis.set_major_locator(ticker.MultipleLocator(2.0))
-#ax_writing_slope1.xaxis.set_major_locator(ticker.MultipleLocator(0.2))
-#ax_writing_slope2.xaxis.set_major_locator(ticker.MultipleLocator(0.03))
-#ax_writing_sigma.xaxis.set_major_locator(ticker.MultipleLocator(0.2))
-#formatter = ticker.FuncFormatter(my_formatter)
-#ax_writing_slope2.xaxis.set_major_formatter(formatter) 
-#
-#
-#ax_writing_intercept.axes.get_yaxis().set_ticks([])
-#ax_reading_intercept.axes.get_yaxis().set_ticks([])
-#ax_math_intercept.axes.get_yaxis().set_ticks([])
-#
-#ax_writing_slope1.axes.get_yaxis().set_visible(False)
-#ax_reading_slope1.axes.get_yaxis().set_visible(False)
-#ax_math_slope1.axes.get_yaxis().set_visible(False)
-#
-#ax_writing_slope2.axes.get_yaxis().set_visible(False)
-#ax_reading_slope2.axes.get_yaxis().set_visible(False)
-#ax_math_slope2.axes.get_yaxis().set_visible(False)
-#
-#ax_writing_sigma.axes.get_yaxis().set_visible(False)
-#ax_reading_sigma.axes.get_yaxis().set_visible(False)
-#ax_math_sigma.axes.get_yaxis().set_visible(False)
-#
-#ax_writing_intercept.set_ylabel("Writing", fontsize = fs)
-#ax_reading_intercept.set_ylabel("Reading", fontsize = fs)
-#ax_math_intercept.set_ylabel("Maths", fontsize = fs)
-#
-#
-##ADD TEXT LABELS TO EACH AXES (A, B, C...)
-#ax_math_intercept.text(0, 1.35, 'A',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_math_intercept.transAxes,
-#        color='k', fontsize=15)
-#
-#ax_reading_intercept.text(0, 1.35, 'E',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_reading_intercept.transAxes,
-#        color='k', fontsize=15)
-#        
-#ax_writing_intercept.text(0, 1.35, 'I',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_writing_intercept.transAxes,
-#        color='k', fontsize=15)
-#        
-#ax_math_slope1.text(0, 1.35, 'B',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_math_slope1.transAxes,
-#        color='k', fontsize=15)
-#        
-#ax_reading_slope1.text(0, 1.35, 'F',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_reading_slope1.transAxes,
-#        color='k', fontsize=15)
-#        
-#ax_writing_slope1.text(0, 1.35, 'J',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_writing_slope1.transAxes,
-#        color='k', fontsize=15)
-#        
-#        
-#ax_math_slope2.text(0, 1.35, 'C',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_math_slope2.transAxes,
-#        color='k', fontsize=15)
-#
-#ax_reading_slope2.text(0, 1.35, 'G',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_reading_slope2.transAxes,
-#        color='k', fontsize=15)
-#        
-#ax_writing_slope2.text(0, 1.35, 'K',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_writing_slope2.transAxes,
-#        color='k', fontsize=15)        
-#        
-#        
-#ax_math_sigma.text(0, 1.35, 'D',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_math_sigma.transAxes,
-#        color='k', fontsize=15)
-#
-#ax_reading_sigma.text(0, 1.35, 'H',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_reading_sigma.transAxes,
-#        color='k', fontsize=15)     
-#
-#
-#ax_writing_sigma.text(0, 1.35, 'L',
-#        verticalalignment='top', horizontalalignment='left',
-#        transform=ax_writing_sigma.transAxes,
-#        color='k', fontsize=15)
-#        
-#        
-#sns.despine()
+
+label_pad = 15
+fs = 18
+
+ax_writing_intercept.set_xlabel(r"$\alpha$", labelpad = label_pad, fontsize = fs)
+#ax_reading_intercept.set_ylabel("Density")
+
+ax_writing_slope1.set_xlabel(r"$\beta_1$ (Age)", labelpad = label_pad, fontsize = fs)
+ax_writing_slope2.set_xlabel(r"$\beta_2$ (IT Score)", labelpad = label_pad, fontsize = fs)
+
+#ax_writing_slope2.set_ylim([0, 45])
+#ax_writing_slope2.set_xlim([-0.01, 0.08])
+ax_writing_sigma.set_xlabel(r"$\sigma$ (SD)", labelpad = label_pad, fontsize = fs)
+
+ax_writing_intercept.xaxis.set_major_locator(ticker.MultipleLocator(2.0))
+ax_writing_slope1.xaxis.set_major_locator(ticker.MultipleLocator(0.2))
+ax_writing_slope2.xaxis.set_major_locator(ticker.MultipleLocator(0.03))
+ax_writing_sigma.xaxis.set_major_locator(ticker.MultipleLocator(0.2))
+formatter = ticker.FuncFormatter(my_formatter)
+ax_writing_slope2.xaxis.set_major_formatter(formatter) 
+
+
+ax_writing_intercept.axes.get_yaxis().set_ticks([])
+ax_reading_intercept.axes.get_yaxis().set_ticks([])
+ax_math_intercept.axes.get_yaxis().set_ticks([])
+
+ax_writing_slope1.axes.get_yaxis().set_visible(False)
+ax_reading_slope1.axes.get_yaxis().set_visible(False)
+ax_math_slope1.axes.get_yaxis().set_visible(False)
+
+ax_writing_slope2.axes.get_yaxis().set_visible(False)
+ax_reading_slope2.axes.get_yaxis().set_visible(False)
+ax_math_slope2.axes.get_yaxis().set_visible(False)
+
+ax_writing_sigma.axes.get_yaxis().set_visible(False)
+ax_reading_sigma.axes.get_yaxis().set_visible(False)
+ax_math_sigma.axes.get_yaxis().set_visible(False)
+
+ax_writing_intercept.set_ylabel("Writing", fontsize = fs)
+ax_reading_intercept.set_ylabel("Reading", fontsize = fs)
+ax_math_intercept.set_ylabel("Maths", fontsize = fs)
+
+
+#ADD TEXT LABELS TO EACH AXES (A, B, C...)
+ax_math_intercept.text(0, 1.35, 'A',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_math_intercept.transAxes,
+        color='k', fontsize=15)
+
+ax_reading_intercept.text(0, 1.35, 'E',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_reading_intercept.transAxes,
+        color='k', fontsize=15)
+        
+ax_writing_intercept.text(0, 1.35, 'I',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_writing_intercept.transAxes,
+        color='k', fontsize=15)
+        
+ax_math_slope1.text(0, 1.35, 'B',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_math_slope1.transAxes,
+        color='k', fontsize=15)
+        
+ax_reading_slope1.text(0, 1.35, 'F',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_reading_slope1.transAxes,
+        color='k', fontsize=15)
+        
+ax_writing_slope1.text(0, 1.35, 'J',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_writing_slope1.transAxes,
+        color='k', fontsize=15)
+        
+        
+ax_math_slope2.text(0, 1.35, 'C',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_math_slope2.transAxes,
+        color='k', fontsize=15)
+
+ax_reading_slope2.text(0, 1.35, 'G',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_reading_slope2.transAxes,
+        color='k', fontsize=15)
+        
+ax_writing_slope2.text(0, 1.35, 'K',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_writing_slope2.transAxes,
+        color='k', fontsize=15)        
+        
+        
+ax_math_sigma.text(0, 1.35, 'D',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_math_sigma.transAxes,
+        color='k', fontsize=15)
+
+ax_reading_sigma.text(0, 1.35, 'H',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_reading_sigma.transAxes,
+        color='k', fontsize=15)     
+
+
+ax_writing_sigma.text(0, 1.35, 'L',
+        verticalalignment='top', horizontalalignment='left',
+        transform=ax_writing_sigma.transAxes,
+        color='k', fontsize=15)
+        
+        
+sns.despine()
 #plt.tight_layout()
-#
+
 #
 #####---------------3d Plot--------------------#####
 ##-------------------------------------------------#
