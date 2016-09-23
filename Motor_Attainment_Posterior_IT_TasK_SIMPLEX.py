@@ -57,50 +57,35 @@ sm = pickle.load(open('Ordered_Probit.pkl', 'rb')) #Load Stan Model
 #with open('Ordered_Probit.pkl', 'wb') as f: #Save Stan model to file
 #    pickle.dump(sm, f)
 #    
-patsy_str = "{} ~ age + interception + Ckat_Tracing + Ckat_aiming + Ckat_Tracking + Open + Closed".format('Attainment_Maths')
-print(patsy_str)
-Y, X = patsy.dmatrices(patsy_str, data = data) #Create lower Design Matrices
+   
+resample = True
+attainment_metric = ['Attainment_Maths', 'Attainment_Reading', 'Attainment_Writing']
 
-Y = np.asarray(Y).astype('int').flatten()
-X = np.asarray(X)
-
-stan_data = dict(y = Y, X = X, N = len(Y), J = np.unique(Y).shape[0],
+if resample:
+    
+    post_la = {}
+    for atn in attainment_metric:
+        
+        patsy_str = "{} ~ age + interception + Ckat_Tracing + Ckat_aiming + Ckat_Tracking + Open + Closed".format(atn)
+        print(patsy_str)
+        Y, X = patsy.dmatrices(patsy_str, data = data) #Create lower Design Matrices
+        X = np.asarray(X)
+        Y = np.asarray(Y).flatten().astype(int)
+        
+        stan_data = dict(y = Y, X = X, N = len(Y), J = np.unique(Y).shape[0],
                          Q = X.shape[1]) #Stan data with corrections made so all integer variables start at 1 (for Stan)
                          
-fit = sm.sampling(data=stan_data, iter = 1000, chains=4, refresh = 1) #Fit model   
-la = fit.extract(permuted = True)
-
-sns.distplot(la['beta'][:,2])
-                        
-#    
-#resample = True
-#attainment_metric = ['Attainment_Maths', 'Attainment_Reading', 'Attainment_Writing']
-#
-#if resample:
-#    
-#    post_la = {}
-#    for atn in attainment_metric:
-#        
-#        patsy_str = "{} ~ 0 + age + interception + Ckat_Tracing + Ckat_aiming + Ckat_Tracking + Open + Closed".format(atn)
-#        print(patsy_str)
-#        Y, X = patsy.dmatrices(patsy_str, data = data) #Create lower Design Matrices
-#        X = np.asarray(X)
-#        Y = np.asarray(Y).flatten().astype(int)
-#        
-#        stan_data = dict(y = Y, x = X, N = len(Y), K = np.unique(Y).shape[0],
-#                         D = X.shape[1]) #Stan data with corrections made so all integer variables start at 1 (for Stan)
-#        
-#        fit = sm.sampling(data=stan_data, iter = 10000, chains=4, refresh = 10, init = "0") #Fit model  
-#               
-#      
-#        post_la[atn] = fit.extract(permuted=True) #Extract fit and save to file
-#        with open('print_fit_{}.txt'.format(atn), 'wb') as f: #Save fit print output to file
-#            print(fit, file=f)
-#    
-#    with open('IT_PREDICTS_MATHS_LA.pkl', 'wb') as f:
-#        pickle.dump(post_la, f)
-#else:
-#    post_la = pickle.load(open("IT_PREDICTS_MATHS_LA.pkl")) #Load fit from file
+        fit = sm.sampling(data=stan_data, iter = 10000, chains=4, refresh = 10) #Fit model  
+               
+      
+        post_la[atn] = fit.extract(permuted=True) #Extract fit and save to file
+        with open('print_fit_{}.txt'.format(atn), 'wb') as f: #Save fit print output to file
+            print(fit, file=f)
+    
+    with open('IT_PREDICTS_MATHS_LA.pkl', 'wb') as f:
+        pickle.dump(post_la, f)
+else:
+    post_la = pickle.load(open("IT_PREDICTS_MATHS_LA.pkl")) #Load fit from file
 
 #
 #resample_submodels = False
