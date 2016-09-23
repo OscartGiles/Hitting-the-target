@@ -4,8 +4,8 @@ Created on Wed Mar 09 16:34:30 2016
 
 @author: ps09og
 """
-
-from __future__ import division, print_function
+#from __future__ import 
+from __future__ import division, print_function, unicode_literals
 import pandas as pd
 import seaborn as sns
 import numpy as np
@@ -51,7 +51,7 @@ corr = data[['age', 'interception', 'Ckat_Tracing',
 ##NOW LETS DO SOME BAYESIAN ANALYSIS
             
 ##Load or compile Stan model
-sm = pickle.load(open('Ordered_Probit.pkl', 'rb')) #Load Stan Model
+#sm = pickle.load(open('Ordered_Probit.pkl', 'rb')) #Load Stan Model
 
 #sm = pystan.StanModel(file='Ordered_Probit.Stan') #Compile Stan Model
 #with open('Ordered_Probit.pkl', 'wb') as f: #Save Stan model to file
@@ -85,7 +85,7 @@ if resample:
     with open('IT_PREDICTS_MATHS_LA.pkl', 'wb') as f:
         pickle.dump(post_la, f)
 else:
-    post_la = pickle.load(open("IT_PREDICTS_MATHS_LA.pkl")) #Load fit from file
+    post_la = pickle.load(open("IT_PREDICTS_MATHS_LA.pkl", 'rb'), encoding = 'latin1', fix_imports = True) #Load fit from file
 
 
 f,ax = plt.subplots(3,1, sharex = True, sharey = True)
@@ -342,101 +342,95 @@ sns.despine()
 ##-------------------------------------------------#
 ##-------------------------------------------------#
 #
-#exp_by_year = data.groupby("year_group").median()
-#exp_by_school = data.median()
-#
-#AGE = np.linspace(4,11,100)    
-#INTERCEPTIVE = np.linspace(0,54, 100)
-#ATTAINMENT = np.arange(1, 15, 1)
-#year_groups = [1, 2, 3, 4, 5, 6] #corresponding year_group
-#age_groups = ["5-6", "6-7", "7-8", "8-9", "9-10", "10-11"]
-#
-#n_levels = 14
-#prob_above_k = np.empty((len(AGE), len(INTERCEPTIVE), n_levels))
-#
-#maths_la = post_la['Attainment_Maths']
-#
-#beta_n = 8 #THERE ARE 7 PARAMETERS
-#beta_loc = np.empty(beta_n)
-#
-#beta_loc[0] = np.mean(maths_la['beta_0_new'])
-#for b in range(0, beta_n-1):
-#    
-#    beta_loc[b+1] = np.mean(maths_la['beta_new'][:,b]) #Weird indexing to get the slopes out
-#
-#cutoffs = maths_la['new_c'].mean(0)
-#sigma = maths_la['new_sig'].mean()
-#
-#
-#try: 
-##    raise AttributeError
-#    prob_above_k = pickle.load(open( "prob_above_K.pickle", "rb" ))
-#    print("Loaded prob_above_k")
-#except (AttributeError, IOError):    
-#    print("WARNING: prob_above_k NOT FOUND. Processing posterior samples")
-#    prob_above_k = np.empty((len(AGE), len(INTERCEPTIVE), n_levels))
-#    
-#    for a in range(len(AGE)):
-#        print(a - len(AGE))
-#        for h in range(len(INTERCEPTIVE)):           
-#      
-#            data_vector = np.array((1, AGE[a], INTERCEPTIVE[h],  exp_by_school.loc['Ckat_Tracing'], 
-#                                    exp_by_school.loc['Ckat_aiming'],  exp_by_school.loc['Ckat_Tracking'], 
-#                                    exp_by_school.loc['Open'], exp_by_school.loc['Closed']))
-#         
-##            pdb.set_trace()
-#            predicted = np.dot(data_vector, beta_loc)
-#            theta = sp.prob_int_point( predicted, cutoffs, sigma, n_levels) #A vector of probabilities of falling into each accademic age category
-#            
-#          
-#            for k in range(n_levels):
-#                
-#                prob_above_k[a, h, k] = theta[k:].sum() #The probability of being above the mean Attainment score for the year group/ nHits      
-#    
-#    pickle.dump(prob_above_k, open("prob_above_K.pickle", "wb" ))
-#
-#
-#X_3d, Y_3d = np.meshgrid(AGE, INTERCEPTIVE)
-#C = X_3d * beta_loc[1] + Y_3d * beta_loc[2] #COLOUR MAP SHOWS THE LMA SCALE
-#C= C/C.max()  
-#
-#line_colors = sns.husl_palette(6, h =.2)
-#D_fig = plt.figure()
-#D_ax = D_fig.add_subplot(111, projection='3d')
-#
-#patches = np.empty(6, dtype = np.object)
-#labels = np.empty(6, dtype = np.object)
-#c = 0
-#
-#for k in [4, 6, 8, 10, 12, 14]:
-#
-#    D_ax.plot_surface(X_3d, Y_3d, prob_above_k[:,:,k-1].T, rstride = X_3d.shape[0]//18, 
-#                      cstride = X_3d.shape[0]//7, color=line_colors[c], alpha = 0.6)
-#    patches[c] = mpatches.Patch(color=line_colors[c], alpha = 0.6, label='%i' %k)
-#    labels[c] = "Grade {}".format(k)
-#    c += 1
-#
-#D_ax.set_xlabel("Age")
-#D_ax.set_ylabel("IT Score")
-#D_ax.set_ylim([0, 54])
-#
-#D_ax.yaxis.set_label_position("top")
-#    
-#D_ax.set_xlim([4, 11])
-#D_ax.set_zlabel(r"P(Math Score $\geq$ k)")
-#
-#plt.gca().zaxis.set_major_formatter(formatter) 
-#
-#for i in D_ax.get_yaxis().majorTicks:
-#    i.set_pad(0.2)
-#D_ax.elev = 26
-#D_ax.azim = -72
-#
-#D_ax.legend(title = "k", handles = patches.tolist(), loc = 0, bbox_to_anchor=(1.04,0.8)) ##Handles must be a python list. Not a numpy array 
-##plt.legend(title = "k", loc = 0, bbox_to_anchor=(1.04,0.8))
-#plt.tight_layout()
-#plt.show()
-#
+exp_by_year = data.groupby("year_group").median()
+exp_by_school = data.median()
+
+AGE = np.linspace(4,11,100)    
+INTERCEPTIVE = np.linspace(0,54, 100)
+ATTAINMENT = np.arange(1, 15, 1)
+year_groups = [1, 2, 3, 4, 5, 6] #corresponding year_group
+age_groups = ["5-6", "6-7", "7-8", "8-9", "9-10", "10-11"]
+
+n_levels = 14
+prob_above_k = np.empty((len(AGE), len(INTERCEPTIVE), n_levels))
+
+maths_la = post_la['Attainment_Maths']
+
+beta = maths_la['beta'].mean(0)
+
+cutoffs = maths_la['cuts'].mean(0)
+sigma = maths_la['sigma'].mean()
+
+
+try: 
+#    raise AttributeError
+    prob_above_k = pickle.load(open( "prob_above_K.pickle", "rb" ))
+    print("Loaded prob_above_k")
+except (AttributeError, IOError):    
+    print("WARNING: prob_above_k NOT FOUND. Processing posterior samples")
+    prob_above_k = np.empty((len(AGE), len(INTERCEPTIVE), n_levels))
+    
+    for a in range(len(AGE)):
+        print(a - len(AGE))
+        for h in range(len(INTERCEPTIVE)):           
+      
+            data_vector = np.array((1, AGE[a], INTERCEPTIVE[h],  exp_by_school.loc['Ckat_Tracing'], 
+                                    exp_by_school.loc['Ckat_aiming'],  exp_by_school.loc['Ckat_Tracking'], 
+                                    exp_by_school.loc['Open'], exp_by_school.loc['Closed']))
+         
+#            pdb.set_trace()
+            predicted = np.dot(data_vector, beta)
+            theta = sp.prob_int_point( predicted, cutoffs, sigma, n_levels) #A vector of probabilities of falling into each accademic age category
+            
+          
+            for k in range(n_levels):
+                
+                prob_above_k[a, h, k] = theta[k:].sum() #The probability of being above the mean Attainment score for the year group/ nHits      
+    
+    pickle.dump(prob_above_k, open("prob_above_K.pickle", "wb" ))
+
+
+X_3d, Y_3d = np.meshgrid(AGE, INTERCEPTIVE)
+C = X_3d * beta[1] + Y_3d * beta[2] #COLOUR MAP SHOWS THE LMA SCALE
+C= C/C.max()  
+
+line_colors = sns.husl_palette(6, h =.2)
+D_fig = plt.figure()
+D_ax = D_fig.add_subplot(111, projection='3d')
+
+patches = np.empty(6, dtype = np.object)
+labels = np.empty(6, dtype = np.object)
+c = 0
+
+for k in [4, 6, 8, 10, 12, 14]:
+
+    D_ax.plot_surface(X_3d, Y_3d, prob_above_k[:,:,k-1].T, rstride = X_3d.shape[0]//18, 
+                      cstride = X_3d.shape[0]//7, color=line_colors[c], alpha = 0.6)
+    patches[c] = mpatches.Patch(color=line_colors[c], alpha = 0.6, label='%i' %k)
+    labels[c] = "Grade {}".format(k)
+    c += 1
+
+D_ax.set_xlabel("Age")
+D_ax.set_ylabel("IT Score")
+D_ax.set_ylim([0, 54])
+
+D_ax.yaxis.set_label_position("top")
+    
+D_ax.set_xlim([4, 11])
+D_ax.set_zlabel(r"P(Math Score $\geq$ k)")
+
+plt.gca().zaxis.set_major_formatter(formatter) 
+
+for i in D_ax.get_yaxis().majorTicks:
+    i.set_pad(0.2)
+D_ax.elev = 26
+D_ax.azim = -72
+
+D_ax.legend(title = "k", handles = patches.tolist(), loc = 0, bbox_to_anchor=(1.04,0.8)) ##Handles must be a python list. Not a numpy array 
+#plt.legend(title = "k", loc = 0, bbox_to_anchor=(1.04,0.8))
+plt.tight_layout()
+plt.show()
+
 #####---------------3d Plot Surface------------#####
 ##-------------------------------------------------#
 ##-------------------------------------------------#
@@ -444,66 +438,66 @@ sns.despine()
 ##-------------------------------------------------#
 ##-------------------------------------------------#
 ##-------------------------------------------------#
-#plot_surface = True
-#
-#if plot_surface:
-#
-#    age_groups = range(5,11) #corresponding year_group
-#    
-#    age_groups.reverse()
-#    hits = [20, 25, 30, 35, 40, 45]    
-#    n_levels = 14
-#    prob_above_exp = np.empty((len(age_groups), len(hits), maths_la[maths_la.keys()[0]].shape[0]))
-#    #
-#    ##GRAPH PLOTTING VARS
-#    N = len(age_groups)
-#    ind = np.arange(len(hits))  # the x locations for the groups
-#    
-#    width = np.linspace(0, 0.5, N)
-#    
-#    markers = ['o', 's', 'v', '*', 'D', 'p', ]
-#    line_colors = sns.color_palette("BuGn_r", 6)
-#    plt.figure()
-#    ##CALCULATE METRICS AND PLOT
-#    
-#    for a in range(len(age_groups)):
-#        for h in range(len(hits)):
-##            print (a, h)
-#            yr_idx = age_groups[a]
-#    
-#            predicted = (maths_la['beta_0_new'] + maths_la['beta_new'][:,0] * yr_idx
-#                        + maths_la['beta_new'][:,1] * hits[h] 
-#                        + maths_la['beta_new'][:,2] * exp_by_school.loc[ 'Ckat_Tracing'] 
-#                        + maths_la['beta_new'][:,3] * exp_by_school.loc['Ckat_aiming'] 
-#                        + maths_la['beta_new'][:,4] * exp_by_school.loc['Ckat_Tracking'] 
-#                        + maths_la['beta_new'][:,5] * exp_by_school.loc['Open'] 
-#                        + maths_la['beta_new'][:,6] * exp_by_school.loc['Closed'])
-#            
-#            theta = sp.prob_int( predicted, maths_la['new_c'], maths_la['new_sig'], n_levels) #A vector of probabilities of falling into each accademic age category
-#            prob_above_exp_temp = theta[:, int(round((exp_by_school.loc['Attainment_Maths']))):].sum(axis = 1) #The probability of being above the mean Attainment score for the year group/ nHits
-#            
-#            prob_above_exp[a, h] = prob_above_exp_temp 
-#    
-#            sp.plot_HDI(prob_above_exp[a, h], ind[h], vert = True, fmt = 'none', ecolor = 'k', capthick = 1, capsize = 10 )
-#    
-#    
-#    
-#    #PLOT DOTS
-#    #pdb.set_trace()
-#    
-#    for a in range(len(age_groups)):
-#        plt.plot(ind, prob_above_exp[a, :].mean(axis = 1), marker = markers[a], color = 'k', mfc = line_colors[a], mec = 'k', mew = 1, ms = 8,  label = age_groups[a])
-#    
-#    plt.legend(title = "Age", bbox_to_anchor=(0.95, 1), loc=2, labelspacing=1.5)
-#    
-#    plt.ylabel(r"P(Math Score $\geq$ 6)")
-#    plt.xlabel('IT Score')
-#    plt.xlim([-0.2, ind[-1] + width[-1] + 0.2])
-#    plt.ylim([0,1.1])
-#    plt.gca().yaxis.set_major_formatter(formatter) 
-#    
-#    plt.xticks(ind)
-#    plt.gca().set_xticklabels(hits)
-#    
-#    sns.despine()
-#    plt.show()    
+plot_surface = True
+
+if plot_surface:
+
+    age_groups = list(range(5,11)) #corresponding year_group
+    
+    age_groups.reverse()
+    hits = [20, 25, 30, 35, 40, 45]    
+    n_levels = 14
+    prob_above_exp = np.empty((len(age_groups), len(hits), maths_la[list(maths_la.keys())[0]].shape[0]))
+    #
+    ##GRAPH PLOTTING VARS
+    N = len(age_groups)
+    ind = np.arange(len(hits))  # the x locations for the groups
+    
+    width = np.linspace(0, 0.5, N)
+    
+    markers = ['o', 's', 'v', '*', 'D', 'p', ]
+    line_colors = sns.color_palette("BuGn_r", 6)
+    plt.figure()
+    ##CALCULATE METRICS AND PLOT
+    
+    for a in range(len(age_groups)):
+        for h in range(len(hits)):
+#            print (a, h)
+            yr_idx = age_groups[a]
+    
+            predicted = (maths_la['beta'][:,0] + maths_la['beta'][:,1] * yr_idx
+                        + maths_la['beta'][:,2] * hits[h] 
+                        + maths_la['beta'][:,3] * exp_by_school.loc[ 'Ckat_Tracing'] 
+                        + maths_la['beta'][:,4] * exp_by_school.loc['Ckat_aiming'] 
+                        + maths_la['beta'][:,5] * exp_by_school.loc['Ckat_Tracking'] 
+                        + maths_la['beta'][:,6] * exp_by_school.loc['Open'] 
+                        + maths_la['beta'][:,7] * exp_by_school.loc['Closed'])
+            
+            theta = sp.prob_int( predicted, maths_la['cuts'], maths_la['sigma'], n_levels) #A vector of probabilities of falling into each accademic age category
+            prob_above_exp_temp = theta[:, int(round((exp_by_school.loc['Attainment_Maths']))):].sum(axis = 1) #The probability of being above the mean Attainment score for the year group/ nHits
+            
+            prob_above_exp[a, h] = prob_above_exp_temp 
+    
+            sp.plot_HDI(prob_above_exp[a, h], ind[h], vert = True, fmt = 'none', ecolor = 'k', capthick = 1, capsize = 10 )
+    
+    
+    
+    #PLOT DOTS
+    #pdb.set_trace()
+    
+    for a in range(len(age_groups)):
+        plt.plot(ind, prob_above_exp[a, :].mean(axis = 1), marker = markers[a], color = 'k', mfc = line_colors[a], mec = 'k', mew = 1, ms = 8,  label = age_groups[a])
+    
+    plt.legend(title = "Age", bbox_to_anchor=(0.95, 1), loc=2, labelspacing=1.5)
+    
+    plt.ylabel(r"P(Math Score $\geq$ 6)")
+    plt.xlabel('IT Score')
+    plt.xlim([-0.2, ind[-1] + width[-1] + 0.2])
+    plt.ylim([0,1.1])
+    plt.gca().yaxis.set_major_formatter(formatter) 
+    
+    plt.xticks(ind)
+    plt.gca().set_xticklabels(hits)
+    
+    sns.despine()
+    plt.show()    
