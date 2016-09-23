@@ -32,7 +32,7 @@ parameters {
   simplex[K - 1] cuts_raw; 
   
   vector[Q] beta;
-  real<lower=0> sigma_res;
+  real<lower=0> sigma;
   
 }
 
@@ -48,13 +48,16 @@ model{
 
     vector[J] theta;
 
+    sigma ~ cauchy(0, 100);
+    beta ~ normal(0, 500);
+
     for(n in 1:N) { 
         real eta;
         eta = X[n] * beta;
-        theta[1] = normal_cdf( cuts[1] , eta, sigma_res );
+        theta[1] = normal_cdf( cuts[1] , eta, sigma);
         for (l in 2:K)
-            theta[l] = normal_cdf(cuts[l], eta, sigma_res) - normal_cdf(cuts[l-1], eta , sigma_res);
-    theta[J] = 1 - normal_cdf(cuts[K] , eta , sigma_res);
+            theta[l] = normal_cdf(cuts[l], eta, sigma) - normal_cdf(cuts[l-1], eta , sigma);
+    theta[J] = 1 - normal_cdf(cuts[K] , eta , sigma);
     y[n] ~ categorical(theta);
     }
 }
