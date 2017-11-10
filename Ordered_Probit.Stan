@@ -29,35 +29,51 @@ transformed data {
 }
   
 parameters { 
-  simplex[K - 1] cuts_raw; 
-  
+  simplex[K - 1] cuts_raw;   
   vector[Q] beta;
-  real<lower=0> sigma;
-  
+  real<lower=0> sigma;  
+
 }
 
-transformed parameters { 
 
+transformed parameters {
+  vector[J] theta[N];
   ordered[K] cuts; 
+
   cuts[1] = L; 
-  cuts[2:K] = L + diff * cumulative_sum(cuts_raw); 
-  
+  cuts[2:K] = L + diff * cumulative_sum(cuts_raw);   
+
+  for(n in 1:N) { 
+	real eta;
+    eta = X[n] * beta;
+    theta[n,1] = normal_cdf( cuts[1] , eta, sigma);
+    for (l in 2:K)
+        theta[n,l] = normal_cdf(cuts[l], eta, sigma) - normal_cdf(cuts[l-1], eta , sigma);
+    theta[n,J] = 1 - normal_cdf(cuts[K] , eta , sigma);
+    }
 }
 
-model{
-
-    vector[J] theta;
+model{    
 
     sigma ~ cauchy(0, 100);
     beta ~ normal(0, 500);
 
-    for(n in 1:N) { 
-        real eta;
-        eta = X[n] * beta;
-        theta[1] = normal_cdf( cuts[1] , eta, sigma);
-        for (l in 2:K)
-            theta[l] = normal_cdf(cuts[l], eta, sigma) - normal_cdf(cuts[l-1], eta , sigma);
-    theta[J] = 1 - normal_cdf(cuts[K] , eta , sigma);
-    y[n] ~ categorical(theta);
+    for(n in 1:N) {         
+    	y[n] ~ categorical(theta[n]);
     }
 }
+
+generated quantities{
+	
+	int y_rep[N]; //Replicate data
+	real log_lik[N]; //Log likelihood 
+
+	//Get log_lik and replicate data
+	for (n in 1:N){
+		y_rep[n] = categorical_rng(theta[n]);
+		log_lik[n] = categorical_lpmf(y[n] | theta[n]);
+
+	}
+}
+
+
