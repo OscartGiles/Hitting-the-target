@@ -6,7 +6,7 @@ Email: o.t.giles@leeds.ac.uk
 
 Overview:
 
-This directory contains all the files and data required to reproduce the analysis in "Hitting the Target:...".
+This directory contains all the files and data required to reproduce the analysis in "Hitting the Target: Mathematical attainment in children is related to interceptive timing ability".
 
 Raw_data:
 
