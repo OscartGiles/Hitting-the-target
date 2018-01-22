@@ -19,9 +19,9 @@ import matplotlib.ticker as ticker
 import scipy.stats as sts
 from pymc.utils import hpd #Requires pymc2 to calculate the highest posterior density
 
-x_names = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
+x_names = [ 'Age', 'InT', 'Steering', 'Aiming', 
               'Tracking', 'Balance:\nOpen', 'Balance:\nClosed']
-x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
+x_names2 = [ 'Age', 'InT', 'Steering', 'Aiming', 
               'Tracking', 'Balance: Open', 'Balance: Closed']
 
 invert = ['Steering', 'Aiming', 
@@ -38,18 +38,21 @@ beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
 
 sns.set_context("paper", rc= {'axes.labelsize': 10})
 
-fig, ax = plt.subplots(3, 8, figsize = (8.6, 3.8))
+fig, ax = plt.subplots(3, 7, figsize = (8.6, 3.8), sharex = 'col')
 
 
 samples = pd.read_csv("..//MCMC_samples//maths_samples.csv", index_col = 0) #Get the data
 beta_names = [x for x in samples.columns if 'beta' in x]
-beta = samples[beta_names]
+beta = samples[beta_names].values
+
+beta = beta[:,1:] #Drop the intercept
 sigma = samples['sigma']
+
 
 
 for i, var in enumerate(x_names):
 
-    beta_val = beta.values[:,i]
+    beta_val = beta[:,i]
     if var in invert:
         beta_val = beta_val * -1
     sns.kdeplot(beta_val, ax = ax[0, i], color = beta_colors[i], shade = True)
@@ -61,7 +64,7 @@ for i, var in enumerate(x_names):
     
     ax[0, i].errorbar(hdi.mean(), y_pos, xerr = hdi.mean() - hdi[0], color = 'k', elinewidth = 2)
     ax[0, i].plot(beta_val.mean(), y_pos, 'ok')
-    if i > 1:
+    if i > 0:
         ax[0, i].axvline(0, linestyle = '--', color = "0")
 
     ax[0, i].get_yaxis().set_ticks([])
@@ -69,17 +72,18 @@ for i, var in enumerate(x_names):
     sns.despine()    
     
 
-
 samples = pd.read_csv("..//MCMC_samples//readings_samples.csv", index_col = 0) #Get the data
 
 beta_names = [x for x in samples.columns if 'beta' in x]
-beta = samples[beta_names]
+beta = samples[beta_names].values
+
+beta = beta[:,1:] #Drop the intercept
 sigma = samples['sigma']
 
 
 for i, var in enumerate(x_names):
     
-    beta_val = beta.values[:,i]
+    beta_val = beta[:, i]
     if var in invert:
         beta_val = beta_val * -1
     sns.kdeplot(beta_val, ax = ax[1, i], color = beta_colors[i], shade = True)
@@ -91,7 +95,7 @@ for i, var in enumerate(x_names):
     
     ax[1, i].errorbar(hdi.mean(), y_pos, xerr = hdi.mean() - hdi[0], color = 'k', elinewidth = 2)
     ax[1, i].plot(beta_val.mean(), y_pos, 'ok')
-    if i > 1:
+    if i > 0:
         ax[1, i].axvline(0, linestyle = '--', color = "0")
     ax[1, i].get_yaxis().set_ticks([])
 
@@ -105,12 +109,14 @@ samples = pd.read_csv("..//MCMC_Samples//writings_samples.csv", index_col = 0) #
 
 beta_names = [x for x in samples.columns if 'beta' in x]
 beta = samples[beta_names]
+beta = samples[beta_names].values
+beta = beta[:,1:] #Drop the intercept
 sigma = samples['sigma']
 
 
 for i, var in enumerate(x_names):
     
-    beta_val = beta.values[:,i]
+    beta_val = beta[:, i]
     if var in invert:
         beta_val = beta_val * -1
     sns.kdeplot(beta_val, ax = ax[2, i], color = beta_colors[i], shade = True)
@@ -122,7 +128,7 @@ for i, var in enumerate(x_names):
     
     ax[2, i].errorbar(hdi.mean(), y_pos, xerr = hdi.mean() - hdi[0], color = 'k', elinewidth = 2)
     ax[2, i].plot(beta_val.mean(), y_pos, 'ok')
-    if i > 1:
+    if i > 0:
         ax[2, i].axvline(0, linestyle = '--', color = "0")
     ax[2, i].get_yaxis().set_ticks([])
 
@@ -133,42 +139,42 @@ for i, var in enumerate(x_names):
 
 
 ##Configure all the axis ticks
-loc = ticker.MultipleLocator(base=0.4) # this locator puts ticks at regular intervals
-[ax[i, 1].xaxis.set_major_locator(loc) for i in range(3)]
+loc = ticker.MultipleLocator(base=0.3) # this locator puts ticks at regular intervals
+[ax[i, 0].xaxis.set_major_locator(loc) for i in range(3)]
 
 loc = ticker.MultipleLocator(base=0.04) # this locator puts ticks at regular intervals
+[ax[i, 1].xaxis.set_major_locator(loc) for i in range(3)]
+
+loc = ticker.MultipleLocator(base=0.8) # this locator puts ticks at regular intervals
 [ax[i, 2].xaxis.set_major_locator(loc) for i in range(3)]
 
-loc = ticker.MultipleLocator(base=0.7) # this locator puts ticks at regular intervals
+loc = ticker.MultipleLocator(base=1.2) # this locator puts ticks at regular intervals
 [ax[i, 3].xaxis.set_major_locator(loc) for i in range(3)]
-
-loc = ticker.MultipleLocator(base=0.9) # this locator puts ticks at regular intervals
-[ax[i, 4].xaxis.set_major_locator(loc) for i in range(3)]
-
-loc = ticker.MultipleLocator(base=0.05) # this locator puts ticks at regular intervals
-[ax[i, 5].xaxis.set_major_locator(loc) for i in range(3)]
-
-loc = ticker.MultipleLocator(base=0.03) # this locator puts ticks at regular intervals
-[ax[i, 6].xaxis.set_major_locator(loc) for i in range(3)]
-
-loc = ticker.MultipleLocator(base=0.03) # this locator puts ticks at regular intervals
-[ax[i, 7].xaxis.set_major_locator(loc) for i in range(3)]
+#
+#loc = ticker.MultipleLocator(base=0.03) # this locator puts ticks at regular intervals
+#[ax[i, 5].xaxis.set_major_locator(loc) for i in range(3)]
+#
+#loc = ticker.MultipleLocator(base=0.03) # this locator puts ticks at regular intervals
+#[ax[i, 6].xaxis.set_major_locator(loc) for i in range(3)]
+#
+##loc = ticker.MultipleLocator(base=0.03) # this locator puts ticks at regular intervals
+##[ax[i, 7].xaxis.set_major_locator(loc) for i in range(3)]
 
 
-loc = ticker.MultipleLocator(base=2) # this locator puts ticks at regular intervals
-ax[2, 0].xaxis.set_major_locator(loc)
-loc = ticker.MultipleLocator(base=3) # this locator puts ticks at regular intervals
-ax[1,0].xaxis.set_major_locator(loc)
-
+#loc = ticker.MultipleLocator(base=2) # this locator puts ticks at regular intervals
+##ax[2, 0].xaxis.set_major_locator(loc)
+#loc = ticker.MultipleLocator(base=3) # this locator puts ticks at regular intervals
+#ax[1,0].xaxis.set_major_locator(loc)
+#
 
 #Set all the column xlabels to be the same
-[ax[i, 1].set_xlim([0.08, 2]) for i in range(3)]
-[ax[i, 2].set_xlim([-0.06, 0.065]) for i in range(3)]
-#[ax[i, 3].set_xlim([-2.5, 0.05]) for i in range(3)]
+#[ax[i, 0].set_xlim([-0.06, 0.065]) for i in range(3)]
+[ax[i, 1].set_xlim([-0.035, 0.06]) for i in range(3)]
+#[ax[i, 2].set_xlim([-2.5, 1]) for i in range(3)]
 #[ax[i, 4].set_xlim([-2.5, 1]) for i in range(3)]
 #[ax[i, 5].set_xlim([-0.08, 0.06]) for i in range(3)]
-[ax[i, 6].set_xlim([-0.04, 0.04]) for i in range(3)]
-[ax[i, 7].set_xlim([-0.05, 0.04]) for i in range(3)]
+#[ax[i, 6].set_xlim([-0.04, 0.04]) for i in range(3)]
+#[ax[i, 7].set_xlim([-0.05, 0.04]) for i in range(3)]
 
 
 ax[0,0].set_ylabel("Mathematics")
