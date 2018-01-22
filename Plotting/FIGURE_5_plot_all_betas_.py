@@ -25,7 +25,7 @@ x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming',
               'Tracking', 'Balance: Open', 'Balance: Closed']
 
 invert = ['Steering', 'Aiming', 
-              'Tracking']
+              'Tracking', 'Balance: Open', 'Balance: Closed']
 
 beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
  (0.21568627450980393, 0.49411764705882355, 0.7215686274509804),
@@ -50,6 +50,8 @@ sigma = samples['sigma']
 for i, var in enumerate(x_names):
 
     beta_val = beta.values[:,i]
+    if var in invert:
+        beta_val = beta_val * -1
     sns.kdeplot(beta_val, ax = ax[0, i], color = beta_colors[i], shade = True)
     hdi = hpd(beta_val, 0.1)
     
@@ -58,7 +60,7 @@ for i, var in enumerate(x_names):
     y_pos = axis_to_data.transform((0, 0.08))[1]
     
     ax[0, i].errorbar(hdi.mean(), y_pos, xerr = hdi.mean() - hdi[0], color = 'k', elinewidth = 2)
-    ax[0, i].plot(beta.values[:,i].mean(), y_pos, 'ok')
+    ax[0, i].plot(beta_val.mean(), y_pos, 'ok')
     if i > 1:
         ax[0, i].axvline(0, linestyle = '--', color = "0")
 
@@ -74,23 +76,21 @@ beta_names = [x for x in samples.columns if 'beta' in x]
 beta = samples[beta_names]
 sigma = samples['sigma']
 
-#x_names = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
-#              'Tracking', 'Balance:\nOpen', 'Balance:\nClosed']
-#x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
-#              'Tracking', 'Balance: Open', 'Balance: Closed']
-
 
 for i, var in enumerate(x_names):
     
-    sns.kdeplot(beta.values[:,i], ax = ax[1, i], color = beta_colors[i], shade = True)
-    hdi = hpd(beta.values[:,i], 0.1)
+    beta_val = beta.values[:,i]
+    if var in invert:
+        beta_val = beta_val * -1
+    sns.kdeplot(beta_val, ax = ax[1, i], color = beta_colors[i], shade = True)
+    hdi = hpd(beta_val, 0.1)
     
     #Translate from axes coordiantes to data coorindates to get the y position of the errorbar line
     axis_to_data = ax[1, i].transAxes + ax[1, i].transData.inverted()
     y_pos = axis_to_data.transform((0, 0.08))[1]
     
     ax[1, i].errorbar(hdi.mean(), y_pos, xerr = hdi.mean() - hdi[0], color = 'k', elinewidth = 2)
-    ax[1, i].plot(beta.values[:,i].mean(), y_pos, 'ok')
+    ax[1, i].plot(beta_val.mean(), y_pos, 'ok')
     if i > 1:
         ax[1, i].axvline(0, linestyle = '--', color = "0")
     ax[1, i].get_yaxis().set_ticks([])
@@ -107,23 +107,21 @@ beta_names = [x for x in samples.columns if 'beta' in x]
 beta = samples[beta_names]
 sigma = samples['sigma']
 
-#x_names = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
-#              'Tracking', 'Balance:\nOpen', 'Balance:\nClosed']
-#x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
-#              'Tracking', 'Balance: Open', 'Balance: Closed']
-
 
 for i, var in enumerate(x_names):
     
-    sns.kdeplot(beta.values[:,i], ax = ax[2, i], color = beta_colors[i], shade = True)
-    hdi = hpd(beta.values[:,i], 0.1)
+    beta_val = beta.values[:,i]
+    if var in invert:
+        beta_val = beta_val * -1
+    sns.kdeplot(beta_val, ax = ax[2, i], color = beta_colors[i], shade = True)
+    hdi = hpd(beta_val, 0.1)
     
     #Translate from axes coordiantes to data coorindates to get the y position of the errorbar line
     axis_to_data = ax[2, i].transAxes + ax[2, i].transData.inverted()
     y_pos = axis_to_data.transform((0, 0.08))[1]
     
     ax[2, i].errorbar(hdi.mean(), y_pos, xerr = hdi.mean() - hdi[0], color = 'k', elinewidth = 2)
-    ax[2, i].plot(beta.values[:,i].mean(), y_pos, 'ok')
+    ax[2, i].plot(beta_val.mean(), y_pos, 'ok')
     if i > 1:
         ax[2, i].axvline(0, linestyle = '--', color = "0")
     ax[2, i].get_yaxis().set_ticks([])
@@ -166,9 +164,9 @@ ax[1,0].xaxis.set_major_locator(loc)
 #Set all the column xlabels to be the same
 [ax[i, 1].set_xlim([0.08, 2]) for i in range(3)]
 [ax[i, 2].set_xlim([-0.06, 0.065]) for i in range(3)]
-[ax[i, 3].set_xlim([-2.5, 0.05]) for i in range(3)]
-[ax[i, 4].set_xlim([-2.5, 1]) for i in range(3)]
-[ax[i, 5].set_xlim([-0.08, 0.06]) for i in range(3)]
+#[ax[i, 3].set_xlim([-2.5, 0.05]) for i in range(3)]
+#[ax[i, 4].set_xlim([-2.5, 1]) for i in range(3)]
+#[ax[i, 5].set_xlim([-0.08, 0.06]) for i in range(3)]
 [ax[i, 6].set_xlim([-0.04, 0.04]) for i in range(3)]
 [ax[i, 7].set_xlim([-0.05, 0.04]) for i in range(3)]
 
