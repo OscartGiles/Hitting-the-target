@@ -24,6 +24,8 @@ x_names = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming',
 x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
               'Tracking', 'Balance: Open', 'Balance: Closed']
 
+invert = ['Steering', 'Aiming', 
+              'Tracking']
 
 beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
  (0.21568627450980393, 0.49411764705882355, 0.7215686274509804),
@@ -44,11 +46,12 @@ beta_names = [x for x in samples.columns if 'beta' in x]
 beta = samples[beta_names]
 sigma = samples['sigma']
 
-i = 0
-for var in x_names:
 
-    sns.kdeplot(beta.values[:,i], ax = ax[0, i], color = beta_colors[i], shade = True)
-    hdi = hpd(beta.values[:,i], 0.1)
+for i, var in enumerate(x_names):
+
+    beta_val = beta.values[:,i]
+    sns.kdeplot(beta_val, ax = ax[0, i], color = beta_colors[i], shade = True)
+    hdi = hpd(beta_val, 0.1)
     
     #Translate from axes coordiantes to data coorindates to get the y position of the errorbar line
     axis_to_data = ax[0, i].transAxes + ax[0, i].transData.inverted()
@@ -64,7 +67,6 @@ for var in x_names:
     sns.despine()    
     
 
-    i += 1
 
 samples = pd.read_csv("..//MCMC_samples//readings_samples.csv", index_col = 0) #Get the data
 
@@ -72,13 +74,13 @@ beta_names = [x for x in samples.columns if 'beta' in x]
 beta = samples[beta_names]
 sigma = samples['sigma']
 
-x_names = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
-              'Tracking', 'Balance:\nOpen', 'Balance:\nClosed']
-x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
-              'Tracking', 'Balance: Open', 'Balance: Closed']
+#x_names = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
+#              'Tracking', 'Balance:\nOpen', 'Balance:\nClosed']
+#x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
+#              'Tracking', 'Balance: Open', 'Balance: Closed']
 
-i = 0
-for var in x_names:
+
+for i, var in enumerate(x_names):
     
     sns.kdeplot(beta.values[:,i], ax = ax[1, i], color = beta_colors[i], shade = True)
     hdi = hpd(beta.values[:,i], 0.1)
@@ -96,7 +98,7 @@ for var in x_names:
     ax[1, i].set_xlabel(var)
     sns.despine()    
 
-    i += 1
+ 
 
 
 samples = pd.read_csv("..//MCMC_Samples//writings_samples.csv", index_col = 0) #Get the data
@@ -105,13 +107,13 @@ beta_names = [x for x in samples.columns if 'beta' in x]
 beta = samples[beta_names]
 sigma = samples['sigma']
 
-x_names = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
-              'Tracking', 'Balance:\nOpen', 'Balance:\nClosed']
-x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
-              'Tracking', 'Balance: Open', 'Balance: Closed']
+#x_names = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
+#              'Tracking', 'Balance:\nOpen', 'Balance:\nClosed']
+#x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming', 
+#              'Tracking', 'Balance: Open', 'Balance: Closed']
 
-i = 0
-for var in x_names:
+
+for i, var in enumerate(x_names):
     
     sns.kdeplot(beta.values[:,i], ax = ax[2, i], color = beta_colors[i], shade = True)
     hdi = hpd(beta.values[:,i], 0.1)
