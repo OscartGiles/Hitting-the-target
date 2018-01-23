@@ -33,7 +33,7 @@ pred_string = "~" + pred_string
 sns.set_context("paper")
 sns.set_style("white")
 
-rdata = pd.read_csv("..//Raw_data//maths_data.csv")
+rdata = pd.read_csv("..//Raw_data//master_concat_data.csv")
 rdata = rdata.dropna()    
 
 
@@ -128,3 +128,23 @@ p_contrast = (p2[:,4:].sum(axis = 1) - p1[:,4:].sum(axis = 1))
 
 
 
+plt.figure()
+
+prob_ratio = np.log(p2/p1)
+
+N = 100 #Number of samples to plot
+
+idx = np.random.randint(0, N, size = N)
+
+
+for samp_idx in idx:
+    
+    
+    plt.plot(range(14), prob_ratio[samp_idx], alpha = 0.05, color = 'k')
+    
+plt.plot(range(14), prob_ratio.mean(0), alpha = 1, color = 'k')    
+plt.axhline(0, color = 'k', linestyle = '--')
+plt.xlabel("Maths outcome")
+plt.ylabel("Probability log ratio (+1SD / -1SD)")
+plt.xlim([0, 13])
+sns.despine()
