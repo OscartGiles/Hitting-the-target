@@ -18,6 +18,7 @@ import matplotlib.pylab as plt
 import pdb
 import pandas as pd
 from pymc.utils import hpd
+import itertools
 
 def hue_offsets(n_hue_levels, width = 0.8):
     """A list of center positions for plots when hue nesting is used.
@@ -269,3 +270,50 @@ def bar_plot(x = None, y = None, hue = None, order = None, hue_order = None, ax 
         
     ax.set_xticks(n_x)
     ax.set_xticklabels(summary_vals[x].unique())
+    
+    
+def plot_violin(x = None, y = None, hue = None, order = None, hue_order = None, ax = None, data = None, palette = None, max_width = 0.5, vert = False,  **kwargs):
+
+
+    if (x == None):
+        raise TypeError("Missing x label")
+        
+    if (y == None):
+        raise TypeError("Missing y label")        
+        
+    if ax == None:
+        ax = plt.gca()            
+    
+    
+ 
+    if hue == None:
+        
+        plot_conds = order
+        
+    else:
+        plot_conds = list(itertools.product(order, hue_order)) #A list of every condition
+        
+        if palette:
+            palette = palette * len(order)
+    
+
+    #conds = list(itertools.product(names, outcome)) #A list of every condition
+    if hue == None:        
+        violin_data = [data[(data[x] == i)][0].values for i in plot_conds]      
+        violin_x_pos = range(len(order))
+        
+    else:
+        violin_data = [data[(data[x] == i[0]) & (data[hue] == i[1])][0].values for i in plot_conds]    
+
+        violin_x_pos = np.repeat(range(len(order)), 3) + np.tile(hue_offsets(3), 4)
+    
+       
+    parts = ax.violinplot(violin_data, violin_x_pos, showmeans= False, showextrema=False, widths = max_width, vert = vert)
+    
+    for i, pc in enumerate(parts['bodies']):
+        pc.set_facecolor(palette[i])
+        pc.set_edgecolor('black')
+            
+
+
+    return parts

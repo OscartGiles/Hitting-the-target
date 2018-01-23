@@ -19,7 +19,7 @@ import numpy as np
 import matplotlib.pylab as plt
 import scipy.stats as sts
 from pymc.utils import hpd
-
+import matplotlib.ticker as ticker 
 #From the current working directory
 import bayesplotting as bp
 
@@ -138,3 +138,76 @@ plt.xlabel("Sensorimotor Task")
 plt.ylabel("Equivalent change in age (months)")
 plt.show()
 
+
+
+#
+#f, ax = plt.subplots(1,1, sharex = 'col', figsize = (8, 3.5))
+#color_pal = ['k', 'w', "0.75"]
+#
+#
+#
+#plt.axhline(0, color = "0.0", linestyle = "--")
+#
+#out =bp.plot_violin(x = "Task", y = 0, hue = "Attainment", data = s, 
+#             ax = ax,  order = names, hue_order = outcome, palette = color_pal, max_width = 0.25)
+#
+#
+#
+#bp.error_plot(x = "Task", y = 0, hue = "Attainment", data = s, 
+#              linestyle = "None", color = "0.2",               
+#              hpd_alpha = 0.05, ax = ax, order = names, hue_order = outcome)
+#
+#plt.ylim([-5, 15])
+#sns.despine()
+#plt.tight_layout()
+#
+
+
+
+f, ax = plt.subplots(1,4, sharey = True, figsize = (8, 2))
+color_pal = ['k', 'w', "0.75"]
+
+for i, name in enumerate(names):
+    
+    ax[i].axhline(0, color = "0.0", linestyle = "--")
+          
+    
+    out  = bp.plot_violin(x = "Attainment", y = 0, data = s[s['Task'] == name], 
+                 ax = ax[i],  order = outcome, palette = color_pal, vert = True)
+    
+    ax[i].set_title("{}".format(name))
+            
+    sns.despine()
+    
+[ax[i].set_xticks(range(len(outcome))) for i in range(4)]
+
+[ax[i].set_xticklabels(outcome) for i in range(4)]
+
+#loc = ticker.MultipleLocator(base=5.0) # this locator puts ticks at regular intervals
+#[ax[i].xaxis.set_major_locator(loc) for i in range(3)]
+#[ax[i].set_xlim([-5, 15]) for i in range(3)]
+
+plt.tight_layout()
+
+
+
+
+color_pal = ['w', '0.85', "0.55"]
+plt.figure()
+plt.axhline(0, color = "0.0", linestyle = "--")
+sns.violinplot(x = "Task", y = 0, hue = "Attainment", data = s, 
+               palette = color_pal, inner = None, 
+               bw = 1.5)
+
+sns.despine()
+
+#bp.point_plot(x = "Task", y = 0, hue = "Attainment", data = s, 
+#             ax = ax,  order = names, hue_order = outcome,  marker = 'o', linestyle = '', color = 'k')
+#
+#
+
+
+#
+#plt.axhline(0, color = "0.75", linestyle = "--")
+#sns.despine()
+#plt.legend(title = "Attainment Measure", bbox_to_anchor = (0.85, 0.9))
