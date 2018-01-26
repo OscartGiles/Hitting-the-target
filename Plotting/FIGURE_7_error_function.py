@@ -105,31 +105,20 @@ p_contrast = (p2[:,4:].sum(axis = 1) - p1[:,4:].sum(axis = 1))
 
 width = 0.4
 offset = 0.2
-f1, ax1 = plt.subplots(1,2)
+f1, ax1 = plt.subplots(1,2, sharex = True)
 ax1[0].bar(np.array(range(14))-offset, p1.mean(0), width =width, alpha = 0.75)
 ax1[0].bar(np.array(range(14))+offset, p2.mean(0), width = width, alpha = 0.75)
 
-ax1[0].xaxis.set_major_locator(MaxNLocator(integer=True))
-ax1[0].set_xticklabels(np.arange(1,15))
+
 
 ax1[0].set_xlabel("Maths Outcome")
 ax1[0].set_ylabel("P(Maths Outcome)")
-ax1[0].set_xlim([0, 8])
+
 sns.despine()
 
-sns.kdeplot(p1[:,4:].sum(axis = 1), ax = ax1[1], shade = True, label = "5")
-sns.kdeplot(p2[:,4:].sum(axis = 1), ax = ax1[1], shade = True, label = "5 + IntT typical range")
-ax1[1].set_xlabel(r"P(Maths Outcome $\geq$ 5)" )
-ax1[1].get_yaxis().set_ticks([])
-ax1[1].legend(title = r"$\mu$ value", edgecolor = "k", bbox_to_anchor = (0.65, 1), frameon = True)
-sns.despine()
-
-p_contrast = (p2[:,4:].sum(axis = 1) - p1[:,4:].sum(axis = 1))
 
 
-
-plt.figure()
-
+#Plot 2
 prob_ratio = np.log(p2/p1)
 
 N = 100 #Number of samples to plot
@@ -140,11 +129,19 @@ idx = np.random.randint(0, N, size = N)
 for samp_idx in idx:
     
     
-    plt.plot(range(14), prob_ratio[samp_idx], alpha = 0.05, color = 'k')
+    ax1[1].plot(range(14), prob_ratio[samp_idx], alpha = 0.05, color = 'k')
     
-plt.plot(range(14), prob_ratio.mean(0), alpha = 1, color = 'k')    
-plt.axhline(0, color = 'k', linestyle = '--')
-plt.xlabel("Maths outcome")
-plt.ylabel("Probability log ratio (+1SD / -1SD)")
-plt.xlim([0, 13])
+ax1[1].plot(range(14), prob_ratio.mean(0), alpha = 1, color = 'k')    
+ax1[1].axhline(0, color = 'k', linestyle = '--')
+ax1[1].set_xlabel("Maths outcome")
+ax1[1].set_ylabel("Probability log ratio (+1SD / -1SD)")
+
+
+[ax1[i].xaxis.set_major_locator(MaxNLocator(integer=True)) for i in range(2)]
+#[ax1[i].set_xticklabels(np.arange(1,15)) for i in range(2)]
+[ax1[i].set_xlim([0, 13]) for i in range(2)]
+
+
 sns.despine()
+
+plt.show()
