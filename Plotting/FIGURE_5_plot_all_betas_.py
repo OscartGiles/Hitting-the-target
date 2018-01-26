@@ -25,7 +25,7 @@ x_names2 = [ 'Age', 'InT', 'Steering', 'Aiming',
               'Tracking', 'Balance: Open', 'Balance: Closed']
 
 invert = ['Steering', 'Aiming', 
-              'Tracking', 'Balance: Open', 'Balance: Closed']
+              'Tracking', 'Balance:\nOpen', 'Balance:\nClosed']
 
 beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
  (0.21568627450980393, 0.49411764705882355, 0.7215686274509804),
@@ -36,7 +36,8 @@ beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
  (1.0, 0.4980392156862745, 0.0),
  (1.0, 0.4980392156862745, 0.0)]
 
-sns.set_context("paper", rc= {'axes.labelsize': 10})
+sns.set(context = "paper", style = "white", 
+        rc= {'axes.labelsize': 10}, font = 'sans-serif')
 
 fig, ax = plt.subplots(3, 7, figsize = (8.6, 3.8), sharex = 'col')
 
@@ -53,8 +54,6 @@ sigma = samples['sigma']
 for i, var in enumerate(x_names):
 
     beta_val = beta[:,i]
-    if var in invert:
-        beta_val = beta_val * -1
     sns.kdeplot(beta_val, ax = ax[0, i], color = beta_colors[i], shade = True)
     hdi = hpd(beta_val, 0.1)
     
@@ -69,6 +68,9 @@ for i, var in enumerate(x_names):
 
     ax[0, i].get_yaxis().set_ticks([])
     ax[0, i].set_xlabel(var)
+    
+    if var in invert:
+        ax[0,i].invert_xaxis()
     sns.despine()    
     
 
@@ -83,9 +85,7 @@ sigma = samples['sigma']
 
 for i, var in enumerate(x_names):
     
-    beta_val = beta[:, i]
-    if var in invert:
-        beta_val = beta_val * -1
+    beta_val = beta[:, i]  
     sns.kdeplot(beta_val, ax = ax[1, i], color = beta_colors[i], shade = True)
     hdi = hpd(beta_val, 0.1)
     
@@ -117,8 +117,6 @@ sigma = samples['sigma']
 for i, var in enumerate(x_names):
     
     beta_val = beta[:, i]
-    if var in invert:
-        beta_val = beta_val * -1
     sns.kdeplot(beta_val, ax = ax[2, i], color = beta_colors[i], shade = True)
     hdi = hpd(beta_val, 0.1)
     
