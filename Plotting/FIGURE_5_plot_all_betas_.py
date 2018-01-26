@@ -99,7 +99,7 @@ for i, var in enumerate(x_names):
         ax[1, i].axvline(0, linestyle = '--', color = "0")
     ax[1, i].get_yaxis().set_ticks([])
 
-    ax[1, i].set_xlabel(var)
+#    ax[1, i].set_xlabel(var)
     sns.despine()    
 
  
@@ -130,7 +130,7 @@ for i, var in enumerate(x_names):
         ax[2, i].axvline(0, linestyle = '--', color = "0")
     ax[2, i].get_yaxis().set_ticks([])
 
-    ax[2, i].set_xlabel(var)
+#    ax[2, i].set_xlabel(var)
     sns.despine()    
     
     i += 1
