@@ -12,7 +12,7 @@ import numpy as np
 import matplotlib.pylab as plt
 import scipy.stats as sts
 import patsy
-from matplotlib.ticker import MaxNLocator
+import matplotlib.ticker as ticker
 
 
 samples = pd.read_csv("..//MCMC_samples//maths_all_no_attainment.csv", index_col = 0) #Get the data
@@ -94,7 +94,7 @@ def calc_theta(eta, cutoffs, sigma, K):
     return theta
 
 
-
+x_labels = [str(i) for i in range(1, 14+1)]
 #Plot the effect of eta with mean cuts and sigma
 plus_eta = 8.35 * 2 * beta['beta.3'].values
 
@@ -105,14 +105,14 @@ p_contrast = (p2[:,4:].sum(axis = 1) - p1[:,4:].sum(axis = 1))
 
 width = 0.4
 offset = 0.2
-f1, ax1 = plt.subplots(1,2, sharex = True)
-ax1[0].bar(np.array(range(14))-offset, p1.mean(0), width =width, alpha = 0.75)
-ax1[0].bar(np.array(range(14))+offset, p2.mean(0), width = width, alpha = 0.75)
+f1, ax1 = plt.subplots(1,2, sharex = True, figsize = (6, 3))
+ax1[0].bar(np.array(range(1, 14+1))-offset, p1.mean(0), width =width, alpha = 0.75, label = r"$\mu_1$")
+ax1[0].bar(np.array(range(1, 14+1))+offset, p2.mean(0), width = width, alpha = 0.75, label = r"$\mu_2$")
 
 
-
-ax1[0].set_xlabel("Maths Outcome")
-ax1[0].set_ylabel("P(Maths Outcome)")
+ax1[0].set_xlabel("Obs Attainment Score (y)")
+ax1[0].set_ylabel(r"P(y$\vert \mu$)")
+ax1[0].legend(title = "Latent\nAttainment Score",   loc = 1)
 
 sns.despine()
 
@@ -129,19 +129,34 @@ idx = np.random.randint(0, N, size = N)
 for samp_idx in idx:
     
     
-    ax1[1].plot(range(14), prob_ratio[samp_idx], alpha = 0.05, color = 'k')
+    ax1[1].plot(range(1, 14+1), prob_ratio[samp_idx], alpha = 0.05, color = 'k')
     
-ax1[1].plot(range(14), prob_ratio.mean(0), alpha = 1, color = 'k')    
+ax1[1].plot(range(1, 14+1), prob_ratio.mean(0), alpha = 1, color = 'k')    
 ax1[1].axhline(0, color = 'k', linestyle = '--')
-ax1[1].set_xlabel("Maths outcome")
-ax1[1].set_ylabel("Probability log ratio (+1SD / -1SD)")
+ax1[1].set_xlabel("Obs Attainment Score (y)")
+ax1[1].set_ylabel(r"$log[P(y \vert \mu_2)$ / $P(y \vert \mu_1)]$")
 
 
-[ax1[i].xaxis.set_major_locator(MaxNLocator(integer=True)) for i in range(2)]
+#[ax1[i].xaxis.set_major_locator(MaxNLocator(integer=True)) for i in range(2)]
 #[ax1[i].set_xticklabels(np.arange(1,15)) for i in range(2)]
-[ax1[i].set_xlim([0, 13]) for i in range(2)]
+[ax1[i].set_xlim([1, 13]) for i in range(2)]
 
 
 sns.despine()
 
+
+#ax1[0].xaxis.set_major_locator(MaxNLocator(integer=True))
+ax1[0].xaxis.set_major_locator(ticker.MultipleLocator(1))
+
+
+plt.tight_layout()
+#plt.subplots_adjust(top=0.88,
+#                    bottom=0.11,
+#                    left=0.11,
+#                    right=0.9,
+#                    hspace=0.3,
+#                    wspace=0.38)
+
 plt.show()
+
+
