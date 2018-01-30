@@ -1,10 +1,11 @@
-Title: Hitting the target: Mathematical attainment in children is related to interceptive timing ability
-Authors: Oscar T. Giles, Katy A. Shire, Liam J.B. Hill, Faisal Mushtaq, Amanda Waterman, Raymond J. Holt, Peter R. Culmer, Justin H. G. Williams, Richard M. Wilkie, Mark Mon-Williams
+# Title: Hitting the target: Mathematical attainment in children is related to interceptive timing ability
 
-Email: o.t.giles@leeds.ac.uk
+## Authors: Oscar T. Giles, Katy A. Shire, Liam J.B. Hill, Faisal Mushtaq, Amanda Waterman, Raymond J. Holt, Peter R. Culmer, Justin H. G. Williams, Richard M. Wilkie, Mark Mon-Williams
+
+### Email: o.t.giles@leeds.ac.uk
 
 
-Overview:
+### Overview:
 
 This directory contains all the files and data required to reproduce the analysis in "Hitting the Target: Mathematical attainment in children is related to interceptive timing ability".
 
