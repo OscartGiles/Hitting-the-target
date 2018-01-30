@@ -13,17 +13,17 @@ This directory contains all the files and data required to reproduce the analysi
 
 The raw data is provided in the '//Raw_data//' subdirectory in the file "master_concat_data.csv". Each row is a participant and each column is a variable. A brief decriptiuon of each variable is given below
 
-participant: A participant number
-interception: The interceptive score metric (IntT)
-Open: Balance task with eyes open 
-Closed: Balance task with eyes closed
-age: The participant's age
-Ckat_tracking: The Tracking task score
-Ckat_aiming: The Aiming score
-Ckat_tracing: The Steering task (names tracing here, renamed "Steering" in the manuscript)
-Attainment_Maths: Mathematics attainment
-Attainment_Reading: Reading attainment
-Attainment_Writing: Writing attainment
+* participant: A participant number
+* interception: The interceptive score metric (IntT)
+* Open: Balance task with eyes open 
+* Closed: Balance task with eyes closed
+* age: The participant's age
+* Ckat_tracking: The Tracking task score
+* Ckat_aiming: The Aiming score
+* Ckat_tracing: The Steering task (names tracing here, renamed "Steering" in the manuscript)
+* Attainment_Maths: Mathematics attainment
+* Attainment_Reading: Reading attainment
+* Attainment_Writing: Writing attainment
 
 #### Fit the Stan models:
 
