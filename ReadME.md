@@ -1,16 +1,7 @@
 # Hitting the target: Mathematical attainment in children is related to interceptive timing ability
 
 ## Authors:
-* Oscar T. Giles
-* Katy A. Shire
-* Liam J.B. Hill
-* Faisal Mushtaq
-* Amanda Waterman
-* Raymond J. Holt
-* Peter R. Culmer
-* Justin H. G. Williams
-* Richard M. Wilkie
-* Mark Mon-Williams
+Oscar T. Giles, Katy A. Shire, Liam J.B. Hill, Faisal Mushtaq, Amanda Waterman, Raymond J. Holt, Peter R. Culmer, Justin H. G. Williams, Richard M. Wilkie, Mark Mon-Williams
 
 ### Email:
 o.t.giles@leeds.ac.uk
