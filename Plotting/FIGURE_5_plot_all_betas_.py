@@ -27,7 +27,7 @@ x_names2 = [ 'Age', 'InT', 'Steering', 'Aiming',
 invert = ['Steering', 'Aiming', 
               'Tracking', 'Balance:\nOpen', 'Balance:\nClosed']
 
-beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
+beta_colors = [
  (0.21568627450980393, 0.49411764705882355, 0.7215686274509804),
  (0.30196078431372547, 0.6862745098039216, 0.2901960784313726),
  (0.596078431372549, 0.3058823529411765, 0.6392156862745098),
@@ -41,7 +41,9 @@ sns.set(context = "paper", style = "white",
              'axes.titlesize': 12,
              'xtick.labelsize': 10,
              'ytick.labelsize':10,
-             'savefig.dpi' : 500}, 
+             'savefig.dpi' : 500,
+             'xtick.major.size': 2,
+             'xtick.minor.size': 0.0,}, 
             font = 'sans-serif')
 
 
@@ -149,18 +151,34 @@ loc = ticker.MultipleLocator(base=0.3) # this locator puts ticks at regular inte
 loc = ticker.MultipleLocator(base=0.04) # this locator puts ticks at regular intervals
 [ax[i, 1].xaxis.set_major_locator(loc) for i in range(3)]
 
-loc = ticker.MultipleLocator(base=0.8) # this locator puts ticks at regular intervals
+loc = ticker.MultipleLocator(base=1) # this locator puts ticks at regular intervals
 [ax[i, 2].xaxis.set_major_locator(loc) for i in range(3)]
 
-loc = ticker.MultipleLocator(base=1.2) # this locator puts ticks at regular intervals
+loc = ticker.MultipleLocator(base=1) # this locator puts ticks at regular intervals
 [ax[i, 3].xaxis.set_major_locator(loc) for i in range(3)]
 
-[ax[i, 1].set_xlim([-0.035, 0.06]) for i in range(3)]
+loc = ticker.MultipleLocator(base=0.05) # this locator puts ticks at regular intervals
+[ax[i,4].xaxis.set_major_locator(loc) for i in range(3)]
+
+loc = ticker.MultipleLocator(base=0.04) # this locator puts ticks at regular intervals
+[ax[i,5].xaxis.set_major_locator(loc) for i in range(3)]
+
+loc = ticker.MultipleLocator(base=0.04) # this locator puts ticks at regular intervals
+[ax[i,6].xaxis.set_major_locator(loc) for i in range(3)]
+
 
 
 ax[0,0].set_ylabel("Mathematics")
 ax[1,0].set_ylabel("Reading")
 ax[2,0].set_ylabel("Writing")
+
+ax[0,0].set_xlim([0.82, 1.78])
+ax[0,1].set_xlim([-0.05, 0.06])
+ax[0,3].set_xlim([0.33, -2.3])
+ax[0,4].set_xlim([0.023, -0.07])
+ax[0,5].set_xlim([0.03, -0.06])
+ax[0,6].set_xlim([0.03, -0.06])
+
 
 
 #Add major labels
@@ -171,7 +189,8 @@ ax[1,0].text(-0.4, -1, 'Attainment Measure', transform=ax[1,0].transAxes, va='bo
 plt.subplots_adjust(top=0.965,
                     bottom=0.2,
                     left=0.07,
-                    right=0.955,
+                    right=0.985,
                     hspace=0.995,
-                    wspace=0.33)
+                    wspace=0.190)
+
 plt.show()
