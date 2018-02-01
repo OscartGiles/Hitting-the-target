@@ -19,9 +19,9 @@ import matplotlib.ticker as ticker
 import scipy.stats as sts
 from pymc.utils import hpd #Requires pymc2 to calculate the highest posterior density
 
-x_names = [ 'Age', 'InT', 'Steering', 'Aiming', 
-              'Tracking', 'Balance:\nOpen', 'Balance:\nClosed']
-x_names2 = [ 'Age', 'InT', 'Steering', 'Aiming', 
+x_names = [ 'Age', 'IntT', 'Steering', 'Aiming', 
+              'Tracking', 'Balance: Open', 'Balance: Closed']
+x_names2 = [ 'Age', 'IntT', 'Steering', 'Aiming', 
               'Tracking', 'Balance: Open', 'Balance: Closed']
 
 invert = ['Steering', 'Aiming', 
