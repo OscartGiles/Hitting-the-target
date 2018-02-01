@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="ordered_probit_illustration.svg"
+   inkscape:export-filename="G:\PhD_Work\EXPERIMENTS\PHD-RUN\Child Study 2_Relationships between motor measures and interceptive timing\Paper for PsycSci\Revision\graphics_for_revision\ordered_probit_illustration.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker7653"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path7655"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker7619"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path7621"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path5977"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path5974"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) translate(1,0)" />
+    </marker>
+    <inkscape:perspective
+       id="perspective289"
+       inkscape:persp3d-origin="360 : 153.33333 : 1"
+       inkscape:vp_z="720 : 230 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 230 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       id="cp3">
+      <polygon
+         points="73,190 73,203.563 95,203.563 95,190 73,190 "
+         id="polygon1797" />
+    </clipPath>
+    <clipPath
+       id="cp5">
+      <polygon
+         points="73,190 73,203.563 95,203.563 95,190 73,190 "
+         id="polygon1821" />
+    </clipPath>
+    <clipPath
+       id="cp7">
+      <polygon
+         points="73,190 73,203.563 88,203.563 88,190 73,190 "
+         id="polygon1845" />
+    </clipPath>
+    <clipPath
+       id="cp9">
+      <polygon
+         points="73,190 73,203.563 88,203.563 88,190 73,190 "
+         id="polygon1867" />
+    </clipPath>
+    <clipPath
+       id="cp10">
+      <polygon
+         points="74,13 74,364 434,364 434,13 74,13 "
+         id="polygon1874" />
+    </clipPath>
+    <clipPath
+       id="cp11">
+      <polygon
+         points="73,190 73,203.563 88,203.563 88,190 73,190 "
+         id="polygon1889" />
+    </clipPath>
+    <clipPath
+       id="cp13">
+      <polygon
+         points="74,190 74,204 95,204 95,190 74,190 "
+         id="polygon1907" />
+    </clipPath>
+    <clipPath
+       id="cp15">
+      <polygon
+         points="74,190 74,204 95,204 95,190 74,190 "
+         id="polygon1931" />
+    </clipPath>
+    <clipPath
+       id="cp17">
+      <polygon
+         points="73,190 73,204 88,204 88,190 73,190 "
+         id="polygon1955" />
+    </clipPath>
+    <clipPath
+       id="cp19">
+      <polygon
+         points="73,190 73,204 88,204 88,190 73,190 "
+         id="polygon1977" />
+    </clipPath>
+    <clipPath
+       id="cp21">
+      <polygon
+         points="73,190 73,204 88,204 88,190 73,190 "
+         id="polygon1999" />
+    </clipPath>
+    <style
+       id="style4240"
+       type="text/css">
+*{stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;}
+  </style>
+    <style
+       id="style4956"
+       type="text/css">
+*{stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;}
+  </style>
+    <style
+       id="style4986"
+       type="text/css">
+*{stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;}
+  </style>
+    <style
+       id="style6612"
+       type="text/css">
+*{stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;}
+  </style>
+    <style
+       id="style6642"
+       type="text/css">
+*{stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;}
+  </style>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="178.07699"
+     inkscape:cy="681.79827"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       clip-path="url(#cp3)"
+       id="g8871"
+       transform="matrix(1.364137,0,0,1.406645,-36.766642,836.30629)"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath9201"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon8874"
+           points="73,140 87,140 87,126 73,126 73,126 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:SVGTimes;fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text8876"
+         y="137"
+         x="74">-</text>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:'Times New Roman';fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text8878"
+         y="137"
+         x="80.5">3</text>
+    </g>
+    <g
+       clip-path="url(#cp5)"
+       id="g8895"
+       transform="matrix(1.364137,0,0,1.406645,41.545735,836.30629)"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath9216"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon8898"
+           points="73,140 87,140 87,126 73,126 73,126 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:SVGTimes;fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text8900"
+         y="137"
+         x="74">-</text>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:'Times New Roman';fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text8902"
+         y="137"
+         x="80.5">2</text>
+    </g>
+    <g
+       clip-path="url(#cp7)"
+       id="g8919"
+       transform="matrix(1.364137,0,0,1.406645,119.85811,836.30629)"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath9231"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon8922"
+           points="73,140 87,140 87,126 73,126 73,126 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:SVGTimes;fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text8924"
+         y="137"
+         x="74">-</text>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:'Times New Roman';fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text8926"
+         y="137"
+         x="80.5">1</text>
+    </g>
+    <g
+       clip-path="url(#cp9)"
+       transform="matrix(1.364137,0,0,1.406645,-38.507281,836.34104)"
+       id="g8943"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath9246"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon8946"
+           points="74,236 434,236 434,13 74,13 74,13 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8948"
+         points="265,124 265,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8950"
+         points="276.438,124 276.438,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8952"
+         points="287.938,124 287.938,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8954"
+         points="299.438,124 299.438,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8956"
+         points="310.938,124 310.938,120 " />
+    </g>
+    <g
+       clip-path="url(#cp10)"
+       id="g8958"
+       transform="matrix(1.364137,0,0,1.406645,281.25734,836.30629)"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath9255"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon8961"
+           points="73,140 80,140 80,126 73,126 73,126 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+    </g>
+    <g
+       clip-path="url(#cp11)"
+       transform="matrix(1.364137,0,0,1.406645,-38.507281,836.34104)"
+       id="g8965"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath9260"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon8968"
+           points="74,236 434,236 434,13 74,13 74,13 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8970"
+         points="322.375,124 322.375,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8972"
+         points="333.875,124 333.875,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8974"
+         points="345.375,124 345.375,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8976"
+         points="356.813,124 356.813,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8978"
+         points="368.313,124 368.313,120 " />
+    </g>
+    <g
+       clip-path="url(#cp13)"
+       transform="matrix(1.364137,0,0,1.406645,-38.507281,836.34104)"
+       id="g8987"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath9274"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon8990"
+           points="74,236 434,236 434,13 74,13 74,13 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8992"
+         points="379.813,124 379.813,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8994"
+         points="391.25,124 391.25,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8996"
+         points="402.75,124 402.75,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline8998"
+         points="414.25,124 414.25,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9000"
+         points="425.75,124 425.75,120 " />
+    </g>
+    <g
+       clip-path="url(#cp17)"
+       transform="matrix(1.364137,0,0,1.406645,-38.507281,836.34104)"
+       id="g9029"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath9301"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon9032"
+           points="74,236 434,236 434,13 74,13 74,13 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9034"
+         points="253.5,219.5 255.875,219.5 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9036"
+         points="253.5,212.688 255.875,212.688 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9038"
+         points="253.5,205.875 255.875,205.875 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9040"
+         points="253.5,199 255.875,199 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9042"
+         points="253.5,192.188 257.5,192.188 " />
+    </g>
+    <g
+       clip-path="url(#cp19)"
+       transform="matrix(1.364137,0,0,1.406645,-38.507281,836.34104)"
+       id="g9053"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath9316"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon9056"
+           points="74,236 434,236 434,13 74,13 74,13 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9058"
+         points="253.5,185.375 255.875,185.375 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9060"
+         points="253.5,178.563 255.875,178.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9062"
+         points="253.5,171.75 255.875,171.75 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9064"
+         points="253.5,164.938 255.875,164.938 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9066"
+         points="253.5,158.063 257.5,158.063 " />
+    </g>
+    <g
+       clip-path="url(#cp21)"
+       transform="matrix(1.364137,0,0,1.406645,-38.507281,836.34104)"
+       id="g9077"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath9331"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon9080"
+           points="74,236 434,236 434,13 74,13 74,13 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9082"
+         points="253.5,151.25 255.875,151.25 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9084"
+         points="253.5,144.438 255.875,144.438 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9086"
+         points="253.5,137.625 255.875,137.625 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9088"
+         points="253.5,130.813 255.875,130.813 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.13535678px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline9090"
+         points="253.5,124 257.5,124 " />
+    </g>
+    <g
+       clip-path="url(#cp3)"
+       transform="translate(696.60937,841.72678)"
+       id="g10133"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath10481"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon10136"
+           points="74,236 434,236 434,13 74,13 74,13 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10138"
+         points="83.9375,124 83.9375,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10140"
+         points="94.5,124 94.5,120 " />
+    </g>
+    <g
+       clip-path="url(#cp5)"
+       transform="translate(696.60937,841.72678)"
+       id="g10151"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath10493"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon10154"
+           points="74,236 434,236 434,13 74,13 74,13 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10156"
+         points="105.125,124 105.125,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10158"
+         points="115.75,124 115.75,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10160"
+         points="126.313,124 126.313,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10162"
+         points="136.938,124 136.938,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10164"
+         points="147.5,124 147.5,120 " />
+    </g>
+    <g
+       clip-path="url(#cp7)"
+       transform="translate(696.60937,841.72678)"
+       id="g10175"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath10508"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon10178"
+           points="74,236 434,236 434,13 74,13 74,13 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10180"
+         points="158.125,124 158.125,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10182"
+         points="168.688,124 168.688,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10184"
+         points="179.313,124 179.313,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10186"
+         points="189.938,124 189.938,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10188"
+         points="200.5,124 200.5,120 " />
+    </g>
+    <g
+       clip-path="url(#cp9)"
+       transform="translate(696.60937,841.72678)"
+       id="g10199"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath10523"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon10202"
+           points="74,236 434,236 434,13 74,13 74,13 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10204"
+         points="211.125,124 211.125,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10206"
+         points="221.688,124 221.688,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10208"
+         points="232.313,124 232.313,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10210"
+         points="242.875,124 242.875,121.563 " />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:0.1875px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
+         id="polyline10212"
+         points="253.5,124 253.5,120 " />
+    </g>
+    <g
+       clip-path="url(#cp11)"
+       id="g10229"
+       transform="translate(926.60137,841.70208)"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath10541"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon10232"
+           points="73,140 80,140 80,126 73,126 73,126 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:'Times New Roman';fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text10234"
+         y="137"
+         x="74">1</text>
+    </g>
+    <g
+       clip-path="url(#cp13)"
+       id="g10251"
+       transform="translate(979.59337,841.70208)"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath10555"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon10254"
+           points="73,140 80,140 80,126 73,126 73,126 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:'Times New Roman';fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text10256"
+         y="137"
+         x="74">2</text>
+    </g>
+    <g
+       clip-path="url(#cp15)"
+       id="g10273"
+       transform="translate(1032.5854,841.70208)"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath10569"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon10276"
+           points="73,140 80,140 80,126 73,126 73,126 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:'Times New Roman';fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text10278"
+         y="137"
+         x="74">3</text>
+    </g>
+    <g
+       clip-path="url(#cp17)"
+       id="g10297"
+       transform="translate(861.10937,921.40232)"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath10584"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon10300"
+           points="73,140 87,140 87,126 73,126 73,126 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:SVGTimes;fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text10302"
+         y="137"
+         x="74">-</text>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:'Times New Roman';fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text10304"
+         y="137"
+         x="80.5">3</text>
+    </g>
+    <g
+       clip-path="url(#cp19)"
+       id="g10321"
+       transform="translate(861.10937,891.83557)"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath10599"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon10324"
+           points="73,140 87,140 87,126 73,126 73,126 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:SVGTimes;fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text10326"
+         y="137"
+         x="74">-</text>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:'Times New Roman';fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text10328"
+         y="137"
+         x="80.5">2</text>
+    </g>
+    <g
+       clip-path="url(#cp21)"
+       id="g10345"
+       transform="translate(861.10937,862.26882)"
+       style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+      <clipPath
+         id="clipPath10614"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <polygon
+           id="polygon10348"
+           points="73,140 87,140 87,126 73,126 73,126 "
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" />
+      </clipPath>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:SVGTimes;fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text10350"
+         y="137"
+         x="74">-</text>
+      <text
+         font-size="10px"
+         style="font-size:10px;font-family:'Times New Roman';fill:#000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+         id="text10352"
+         y="137"
+         x="80.5">1</text>
+    </g>
+    <g
+       transform="translate(558.32366,864.44107)"
+       inkscape:label="Plot"
+       style="display:inline;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+       id="layer3">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         x="-299.72461"
+         y="-423.22116"
+         id="text6698"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan6700"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           x="-299.72461"
+           y="-423.22116" /></text>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot6716"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="translate(-558.32366,-864.44107)"><flowRegion
+           id="flowRegion6718"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect6720"
+             width="78.791901"
+             height="84.852814"
+             x="654.57886"
+             y="374.54984"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara6722"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRoot>      <g
+         id="figure_1"
+         transform="matrix(0.77111962,0,0,0.6524037,-507.20032,-487.84768)"
+         style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+        <g
+           id="patch_1"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+          <path
+             id="path6646"
+             style="fill:#ffffff;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+             d="m 0,221.4 701.1,0 L 701.1,0 0,0 Z"
+             inkscape:connector-curvature="0" />
+        </g>
+        <g
+           id="axes_1"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+          <g
+             id="line2d_1"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">
+            <path
+               id="path6650"
+               style="fill:none;stroke:#0000ff;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:100000"
+               d="m 108.32767,206.10466 13.08941,-0.46661 10.60605,-0.59395 9.05394,-0.72381 7.96747,-0.85452 7.19141,-0.99061 6.57058,-1.12516 6.10494,-1.26721 5.74279,-1.41677 5.43236,-1.5673 5.17368,-1.72183 4.96674,-1.88479 4.81152,-2.06202 4.70805,-2.26062 4.60457,-2.45983 4.50111,-2.65723 4.44936,-2.88542 4.39763,-3.11624 4.39763,-3.38912 4.39763,-3.67032 4.44936,-4.00613 4.5011,-4.35636 4.55284,-4.71852 4.65632,-5.14834 4.81152,-5.65615 4.96673,-6.18466 5.22542,-6.86565 5.58757,-7.71543 6.10495,-8.8177 7.0362,-10.56925 9.26089,-14.345966 17.12489,-26.582163 6.57057,-9.734053 5.43236,-7.66143 4.81153,-6.409164 4.34589,-5.426765 4.03547,-4.688373 3.72505,-3.995856 3.5181,-3.456556 3.36289,-2.99626 3.20769,-2.561978 3.05247,-2.157389 2.949,-1.81465 2.84552,-1.49219 2.74205,-1.191603 2.69032,-0.929647 2.63857,-0.678002 2.58684,-0.437601 2.58684,-0.211214 2.53511,0.01336 2.58684,0.238434 2.58684,0.464681 2.58684,0.68932 2.63858,0.932055 2.69031,1.184944 2.79379,1.476555 2.84552,1.755557 2.949,2.079713 3.10421,2.465489 3.25942,2.880965 3.41462,3.322923 3.56984,3.787118 3.82853,4.391146 4.08721,5.030594 4.44936,5.833923 4.96674,6.889973 5.63931,8.214525 6.93273,10.512661 10.91646,17.020962 12.31336,19.084122 7.29489,10.89407 6.26016,8.95754 5.69105,7.76005 5.27715,6.82768 5.01847,6.13794 4.86326,5.601 4.70805,5.08692 4.60458,4.65134 4.55284,4.2836 4.5011,3.92916 4.44936,3.59043 4.44937,3.30605 4.44936,3.0311 4.50111,2.79788 4.55284,2.56836 4.60457,2.34445 4.70805,2.15016 4.86326,1.97699 5.01847,1.80018 5.22542,1.63788 5.4841,1.48448 5.79452,1.33577 6.15668,1.18899 6.62231,1.05024 7.24315,0.91942 8.01921,0.78827 9.00221,0.65681 10.45083,0.53362 10.70952,0.36301 0,0"
+               clip-path="url(#pca8be7864d)"
+               inkscape:connector-curvature="0" />
+          </g>
+        </g>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path5014"
+         d="m -427.87658,-341.66534 446.27913,0"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.7707361;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:1;marker-end:"
+         d="m -224.3972,-318.69855 0,-115.9898 0,-39.44107"
+         id="path6668"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.30769229;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:2.30769232, 9.23076929;stroke-dashoffset:0;stroke-opacity:1"
+         d="m -60.37146,-674.43434 0,321.42856"
+         id="path7356"
+         inkscape:connector-curvature="0" />
+      <path
+         style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.30769229;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:2.30769232, 9.23076929;stroke-dashoffset:0;stroke-opacity:1"
+         d="m -162.0862,-674.43434 0,321.42856"
+         id="path7356-9"
+         inkscape:connector-curvature="0" />
+      <path
+         style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.30769229;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:2.30769232, 9.23076929;stroke-dashoffset:0;stroke-opacity:1"
+         d="m -386.0862,-674.43434 0,321.42856"
+         id="path7356-1"
+         inkscape:connector-curvature="0" />
+      <path
+         style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.30769229;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:2.30769232, 9.23076929;stroke-dashoffset:0;stroke-opacity:1"
+         d="m -326.65763,-674.43434 0,321.42856"
+         id="path7356-43"
+         inkscape:connector-curvature="0" />
+      <path
+         style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.30769229;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:2.30769232, 9.23076929;stroke-dashoffset:0;stroke-opacity:1"
+         d="m -233.22906,-674.43434 0,321.42856"
+         id="path7356-0"
+         inkscape:connector-curvature="0" />
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7490"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="translate(-480.32366,-890.44107)"><flowRegion
+           id="flowRegion7492"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect7494"
+             width="357.14285"
+             height="90"
+             x="234.28572"
+             y="570.93365"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara7496"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><flowSpan
+             style="font-size:35px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+             id="flowSpan7711"> μ<flowSpan
+   style="font-size:64.99999762%;baseline-shift:sub;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+   id="flowSpan4400">i </flowSpan>= X<flowSpan
+   style="font-size:65%;baseline-shift:sub"
+   id="flowSpan4402">i</flowSpan>β</flowSpan></flowPara></flowRoot>      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:47.00000286%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         x="-403.93277"
+         y="-684.14001"
+         id="text7502"
+         sodipodi:linespacing="47.000003%"><tspan
+           sodipodi:role="line"
+           id="tspan7504"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           x="-403.93277"
+           y="-684.14001"
+           dy="0 17.172594"
+           dx="0 -1.0101526">C<tspan
+   style="font-size:25px;line-height:47.00000286%;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+   id="tspan7506">1</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:47.00000286%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         x="-345.18683"
+         y="-683.94189"
+         id="text7502-7"
+         sodipodi:linespacing="47.000003%"><tspan
+           sodipodi:role="line"
+           id="tspan7504-6"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           x="-345.18683"
+           y="-683.94189"
+           dy="0"
+           dx="0">C<tspan
+   style="font-size:25px;line-height:47.00000286%;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+   id="tspan7506-0"
+   dy="15.152289">2</tspan></tspan><tspan
+           sodipodi:role="line"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           x="-345.18683"
+           y="-665.14191"
+           dy="0 17.172594"
+           dx="0 -1.0101526"
+           id="tspan7539" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:47.00000286%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         x="-77.496407"
+         y="-678.04346"
+         id="text7502-0"
+         sodipodi:linespacing="47.000003%"><tspan
+           sodipodi:role="line"
+           id="tspan7504-1"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           x="-77.496407"
+           y="-678.04346"
+           dy="0 16"
+           dx="0">C<tspan
+   style="font-size:25px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+   id="tspan7591">6</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:47.00000286%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         x="-253.64215"
+         y="-683.92163"
+         id="text7502-7-1"
+         sodipodi:linespacing="47.000003%"><tspan
+           sodipodi:role="line"
+           id="tspan7504-6-4"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           x="-253.64215"
+           y="-683.92163"
+           dy="0"
+           dx="0">C<tspan
+   style="font-size:25px;line-height:47.00000286%;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+   id="tspan7506-0-7"
+   dy="16.162441">3</tspan></tspan><tspan
+           sodipodi:role="line"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           x="-253.64215"
+           y="-665.12164"
+           dy="0 17.172594"
+           dx="0 -1.0101526"
+           id="tspan7539-8" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:47.00000286%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         x="-182.6066"
+         y="-680.89117"
+         id="text7502-7-6"
+         sodipodi:linespacing="47.000003%"><tspan
+           sodipodi:role="line"
+           id="tspan7504-6-6"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           x="-182.6066"
+           y="-680.89117"
+           dy="0"
+           dx="0">C<tspan
+   style="font-size:25px;line-height:47.00000286%;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+   id="tspan7506-0-74"
+   dy="16">4</tspan></tspan><tspan
+           sodipodi:role="line"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           x="-182.6066"
+           y="-662.09119"
+           dy="0 17.172594"
+           dx="0 -1.0101526"
+           id="tspan7539-2" /></text>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7601"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="translate(-447.24749,-926.0401)"><flowRegion
+           id="flowRegion7603"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect7605"
+             width="554.57373"
+             height="100.0051"
+             x="53.538086"
+             y="661.43317"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara7607"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">Latent Attainment </flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7609"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="translate(-743.14097,-814.94359)"><flowRegion
+           id="flowRegion7611"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect7613"
+             width="140.41121"
+             height="55.558392"
+             x="533.36053"
+             y="374.54984"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara7615"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">σ</flowPara></flowRoot>      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1;marker-end:url(#marker7619)"
+         d="m -223.96317,-428.27192 58.58885,0"
+         id="path7617"
+         inkscape:connector-curvature="0" />
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7713"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="translate(-558.32366,-864.44107)"><flowRegion
+           id="flowRegion7715"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect7717"
+             width="22.857143"
+             height="68.571426"
+             x="140"
+             y="330.93362"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara7719"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">1k - </flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7721"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="matrix(0,-1,1,0,-327.7169,-691.85084)"><flowRegion
+           id="flowRegion7723"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect7725"
+             width="365.71429"
+             height="137.14285"
+             x="-195.71428"
+             y="-116.20922"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara7727"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">k = 1</flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7721-4"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="matrix(0,-1,1,0,-266.88682,-689.76609)"><flowRegion
+           id="flowRegion7723-7"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect7725-5"
+             width="365.71429"
+             height="137.14285"
+             x="-195.71428"
+             y="-116.20922"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara7727-8"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">k = 2</flowPara><flowPara
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           id="flowPara7777" /></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7721-4-2"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="matrix(0,-1,1,0,-189.20435,-688.93601)"><flowRegion
+           id="flowRegion7723-7-3"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect7725-5-5"
+             width="365.71429"
+             height="137.14285"
+             x="-195.71428"
+             y="-116.20922"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara7727-8-7"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">k = 3</flowPara><flowPara
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           id="flowPara7777-2" /></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7721-4-6"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="matrix(0,-1,1,0,-111.77578,-691.50744)"><flowRegion
+           id="flowRegion7723-7-7"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect7725-5-0"
+             width="365.71429"
+             height="137.14285"
+             x="-195.71428"
+             y="-116.20922"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara7727-8-78"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">k = 4</flowPara><flowPara
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           id="flowPara7777-3" /></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7721-4-0"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="matrix(0,-1,1,0,-14.347204,-692.65029)"><flowRegion
+           id="flowRegion7723-7-6"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect7725-5-6"
+             width="365.71429"
+             height="137.14285"
+             x="-195.71428"
+             y="-116.20922"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara7727-8-1"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">k = 5</flowPara><flowPara
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           id="flowPara7777-0" /></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7721-4-0-8"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
+         transform="matrix(0,-1,1,0,67.081366,-694.65029)"><flowRegion
+           id="flowRegion7723-7-6-8"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"><rect
+             id="rect7725-5-6-4"
+             width="365.71429"
+             height="137.14285"
+             x="-195.71428"
+             y="-116.20922"
+             style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000" /></flowRegion><flowPara
+           id="flowPara7727-8-1-2"
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000">k = 6</flowPara><flowPara
+           style="stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:100000"
+           id="flowPara7777-0-3" /></flowRoot>    </g>
+  </g>
+</svg>

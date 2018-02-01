@@ -208,13 +208,18 @@ plt.legend(title = "Model predictors", bbox_to_anchor = (0.33, 0.75))
 #ax.set_ylim([0, 0.9])
 ax[1].set_xlabel("Sensorimotor Task")
 ax[1].set_ylabel("Equivalent change in age (months)")
+
+
+[ax[i].text(0.02, 1.135, label, transform=ax[i].transAxes,va='top', ha='right', fontsize = 18) for i, label in enumerate(['a', 'b'])]
+
 sns.despine()
 
-
-
-plt.tight_layout()
-
-
+plt.subplots_adjust(top=0.880,
+                    bottom=0.145,
+                    left=0.078,
+                    right=0.973,
+                    hspace=0.2,
+                    wspace=0.207)
 
 
 bonus_figures = False

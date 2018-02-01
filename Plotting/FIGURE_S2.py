@@ -148,14 +148,15 @@ sns.despine()
 #ax1[0].xaxis.set_major_locator(MaxNLocator(integer=True))
 ax1[0].xaxis.set_major_locator(ticker.MultipleLocator(1))
 
+[ax1[i].text(0.02, 1.135, label, transform=ax1[i].transAxes,va='top', ha='right', fontsize = 18) for i, label in enumerate(['a', 'b'])]
 
-plt.tight_layout()
-#plt.subplots_adjust(top=0.88,
-#                    bottom=0.11,
-#                    left=0.11,
-#                    right=0.9,
-#                    hspace=0.3,
-#                    wspace=0.38)
+
+plt.subplots_adjust(top=0.877,
+                    bottom=0.167,
+                    left=0.111,
+                    right=0.966,
+                    hspace=0.2,
+                    wspace=0.283)
 
 plt.show()
 

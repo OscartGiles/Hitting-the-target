@@ -37,7 +37,13 @@ beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
  (1.0, 0.4980392156862745, 0.0)]
 
 sns.set(context = "paper", style = "white", 
-        rc= {'axes.labelsize': 10}, font = 'sans-serif')
+        rc= {'axes.labelsize': 10, 
+             'axes.titlesize': 12,
+             'xtick.labelsize': 10,
+             'ytick.labelsize':10,
+             'savefig.dpi' : 500}, 
+            font = 'sans-serif')
+
 
 fig, ax = plt.subplots(3, 7, figsize = (8.6, 3.8), sharex = 'col')
 
@@ -99,7 +105,7 @@ for i, var in enumerate(x_names):
         ax[1, i].axvline(0, linestyle = '--', color = "0")
     ax[1, i].get_yaxis().set_ticks([])
 
-#    ax[1, i].set_xlabel(var)
+    ax[1, i].set_xlabel(var)
     sns.despine()    
 
  
@@ -130,7 +136,7 @@ for i, var in enumerate(x_names):
         ax[2, i].axvline(0, linestyle = '--', color = "0")
     ax[2, i].get_yaxis().set_ticks([])
 
-#    ax[2, i].set_xlabel(var)
+    ax[2, i].set_xlabel(var)
     sns.despine()    
     
     i += 1
@@ -148,38 +154,24 @@ loc = ticker.MultipleLocator(base=0.8) # this locator puts ticks at regular inte
 
 loc = ticker.MultipleLocator(base=1.2) # this locator puts ticks at regular intervals
 [ax[i, 3].xaxis.set_major_locator(loc) for i in range(3)]
-#
-#loc = ticker.MultipleLocator(base=0.03) # this locator puts ticks at regular intervals
-#[ax[i, 5].xaxis.set_major_locator(loc) for i in range(3)]
-#
-#loc = ticker.MultipleLocator(base=0.03) # this locator puts ticks at regular intervals
-#[ax[i, 6].xaxis.set_major_locator(loc) for i in range(3)]
-#
-##loc = ticker.MultipleLocator(base=0.03) # this locator puts ticks at regular intervals
-##[ax[i, 7].xaxis.set_major_locator(loc) for i in range(3)]
 
-
-#loc = ticker.MultipleLocator(base=2) # this locator puts ticks at regular intervals
-##ax[2, 0].xaxis.set_major_locator(loc)
-#loc = ticker.MultipleLocator(base=3) # this locator puts ticks at regular intervals
-#ax[1,0].xaxis.set_major_locator(loc)
-#
-
-#Set all the column xlabels to be the same
-#[ax[i, 0].set_xlim([-0.06, 0.065]) for i in range(3)]
 [ax[i, 1].set_xlim([-0.035, 0.06]) for i in range(3)]
-#[ax[i, 2].set_xlim([-2.5, 1]) for i in range(3)]
-#[ax[i, 4].set_xlim([-2.5, 1]) for i in range(3)]
-#[ax[i, 5].set_xlim([-0.08, 0.06]) for i in range(3)]
-#[ax[i, 6].set_xlim([-0.04, 0.04]) for i in range(3)]
-#[ax[i, 7].set_xlim([-0.05, 0.04]) for i in range(3)]
 
 
 ax[0,0].set_ylabel("Mathematics")
 ax[1,0].set_ylabel("Reading")
 ax[2,0].set_ylabel("Writing")
 
-#Adjust the subplots
-plt.subplots_adjust(top = 0.94, bottom = 0.16, left = 0.04, right = 0.96, hspace = 1, wspace = 0.2)
 
+#Add major labels
+ax[2,3].text(0.5, -1.25, r'$\beta$ coefficients', transform=ax[2,3].transAxes, va='bottom', ha='center', fontsize = 18)
+ax[1,0].text(-0.4, -1, 'Attainment Measure', transform=ax[1,0].transAxes, va='bottom', ha='center', rotation = 90, fontsize = 18)
+
+#Adjust the subplots
+plt.subplots_adjust(top=0.965,
+                    bottom=0.2,
+                    left=0.07,
+                    right=0.955,
+                    hspace=0.995,
+                    wspace=0.33)
 plt.show()
