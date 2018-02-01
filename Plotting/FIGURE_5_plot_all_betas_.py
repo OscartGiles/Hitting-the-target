@@ -167,6 +167,19 @@ loc = ticker.MultipleLocator(base=0.04) # this locator puts ticks at regular int
 [ax[i,6].xaxis.set_major_locator(loc) for i in range(3)]
 
 
+def format_func(value, tick_number):
+    # find number of multiples of pi/2
+    if value == 0.0:
+        
+        return '0'
+    else:
+        return value
+
+ax[0,1].xaxis.set_major_formatter(plt.FuncFormatter(format_func))
+ax[0,4].xaxis.set_major_formatter(plt.FuncFormatter(format_func))
+ax[0,5].xaxis.set_major_formatter(plt.FuncFormatter(format_func))
+ax[0,6].xaxis.set_major_formatter(plt.FuncFormatter(format_func))
+
 
 ax[0,0].set_ylabel("Mathematics")
 ax[1,0].set_ylabel("Reading")

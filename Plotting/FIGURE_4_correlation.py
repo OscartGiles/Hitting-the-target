@@ -32,7 +32,7 @@ beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
  (1.0, 0.4980392156862745, 0.0)]
 
 #Offline colors
-beta_colors = ['k' for i in range(6)]
+#beta_colors = ['k' for i in range(6)]
 
 sns.set(context = "paper", style = "white", 
         rc= {'axes.labelsize': 10, 
@@ -41,8 +41,6 @@ sns.set(context = "paper", style = "white",
              'ytick.labelsize':10,
              'savefig.dpi' : 500}, 
             font = 'sans-serif')
-
-
 
 
 rdata = pd.read_csv("..//Raw_data//master_concat_data.csv")
@@ -120,7 +118,7 @@ ax_sc[3].text(0.1, 0.90, "r = {:3.3f}".format(r_value4),  transform=ax_sc[3].tra
 
 [ax_sc[i].text(-0.1, 1.22, label, transform=ax_sc[i].transAxes,va='top', ha='right', fontsize = 18) for i, label in enumerate(['a', 'b', 'c', 'd'])]
 
-#plt.tight_layout()
+
 plt.subplots_adjust(top=0.84,
                     bottom=0.2,
                     left=0.08,
