@@ -106,8 +106,8 @@ p_contrast = (p2[:,4:].sum(axis = 1) - p1[:,4:].sum(axis = 1))
 width = 0.4
 offset = 0.2
 f1, ax1 = plt.subplots(1,2, sharex = True, figsize = (6, 3))
-ax1[0].bar(np.array(range(1, 14+1))-offset, p1.mean(0), width =width, alpha = 0.75, label = r"$\mu_1$")
-ax1[0].bar(np.array(range(1, 14+1))+offset, p2.mean(0), width = width, alpha = 0.75, label = r"$\mu_2$")
+ax1[0].bar(np.array(range(1, 14+1))-offset, p1.mean(0), width =width, label = r"$\mu_1$", color = '#ED9340', alpha = 0.8)
+ax1[0].bar(np.array(range(1, 14+1))+offset, p2.mean(0), width = width, label = r"$\mu_2$", color = '#003C96', alpha = 0.8)
 
 
 ax1[0].set_xlabel("Obs Attainment Score (y)")
