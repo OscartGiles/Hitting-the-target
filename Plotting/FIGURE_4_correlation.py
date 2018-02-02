@@ -16,21 +16,12 @@ import matplotlib.pylab as plt
 import scipy.stats as sts
 from matplotlib.ticker import MaxNLocator
 
+#x_names = [r'$\beta_0$', 'Age', 'InT', 'Ckat:\nTracing', 'Ckat:\nAiming', 
+#              'Ckat:\nTracking', 'Balance:\nOpen', 'Balance:\nClosed']
+#x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Ckat: Tracing', 'Ckat: Aiming', 
+#              'Ckat: Tracking', 'Balance: Open', 'Balance: Closed']
 
-
-
-samples = pd.read_csv("..//MCMC_samples//maths_samples2.csv", index_col = 0) #Get the maths samples
-raw_data = pd.read_csv("..//Raw_data//maths_data.csv") #Get the raw data
-
-beta_names = [x for x in samples.columns if 'beta' in x]
-beta = samples[beta_names]
-sigma = samples['sigma']
-
-x_names = [r'$\beta_0$', 'Age', 'InT', 'Ckat:\nTracing', 'Ckat:\nAiming', 
-              'Ckat:\nTracking', 'Balance:\nOpen', 'Balance:\nClosed']
-x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Ckat: Tracing', 'Ckat: Aiming', 
-              'Ckat: Tracking', 'Balance: Open', 'Balance: Closed']
-
+#Online colors
 beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
  (0.21568627450980393, 0.49411764705882355, 0.7215686274509804),
  (0.30196078431372547, 0.6862745098039216, 0.2901960784313726),
@@ -40,12 +31,19 @@ beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
  (1.0, 0.4980392156862745, 0.0),
  (1.0, 0.4980392156862745, 0.0)]
 
-sns.set_context("paper")
-sns.set_style("white")
+#Offline colors
+#beta_colors = ['k' for i in range(6)]
+
+sns.set(context = "paper", style = "white", 
+        rc= {'axes.labelsize': 10, 
+             'axes.titlesize': 12,
+             'xtick.labelsize': 10,
+             'ytick.labelsize':10,
+             'savefig.dpi' : 500}, 
+            font = 'sans-serif')
 
 
-###PPC and data plotting
-rdata = pd.read_csv("..//Raw_data//maths_data.csv")
+rdata = pd.read_csv("..//Raw_data//master_concat_data.csv")
 rdata = rdata.dropna()
     
 def linear_regression(x, y):   
@@ -69,17 +67,17 @@ def linear_regression(x, y):
 
 figure_sc, ax_sc = plt.subplots(1,4, figsize = (7, 2.2))
 
-ax_sc[1].scatter(rdata['age'], rdata['Attainment_Maths'], color = beta_colors[0], alpha = 0.7)
+ax_sc[1].scatter(rdata['age'], rdata['Attainment_Maths'], color = beta_colors[0], alpha = 0.35, s = 25)
 slope, intercept, r_value1, p_value1, std_err = sts.linregress(rdata['age'],rdata['Attainment_Maths'])
 line = slope*rdata['age']+intercept
 ax_sc[1].plot(rdata['age'], line, 'k')
 
-ax_sc[2].scatter(rdata['age'], rdata['interception'], color = beta_colors[1], alpha = 0.7)
+ax_sc[2].scatter(rdata['age'], rdata['interception'], color = beta_colors[1], alpha = 0.35, s = 25)
 slope, intercept, r_value2, p_value2, std_err = sts.linregress(rdata['age'],rdata['interception'])
 line = slope*rdata['age']+intercept
 ax_sc[2].plot(rdata['age'], line, 'k')
 
-ax_sc[0].scatter(rdata['interception'], rdata['Attainment_Maths'], color = beta_colors[2], alpha = 0.7)
+ax_sc[0].scatter(rdata['interception'], rdata['Attainment_Maths'], color = beta_colors[2], alpha = 0.35, s = 25)
 slope, intercept, r_value3, p_value3, std_err = sts.linregress(rdata['interception'], rdata['Attainment_Maths'])
 line = slope*rdata['interception'] + intercept
 ax_sc[0].plot(rdata['interception'], line, 'k')
@@ -88,9 +86,9 @@ ax_sc[1].set_xlabel("Age")
 ax_sc[1].set_ylabel("Mathematics Attainment")
 
 ax_sc[2].set_xlabel("Age")
-ax_sc[2].set_ylabel("InT")
+ax_sc[2].set_ylabel("IntT")
 
-ax_sc[0].set_xlabel("InT")
+ax_sc[0].set_xlabel("IntT")
 ax_sc[0].set_ylabel("Mathematics Attainment")
 
 ax_sc[1].xaxis.set_major_locator(MaxNLocator(integer = True))
@@ -104,12 +102,12 @@ maths_resids = linear_regression(rdata['age'], rdata['Attainment_Maths'])[-1]
 
 slope, intercept, r_value4, p_value4, std_err, resids = linear_regression(int_resids, maths_resids)
 
-ax_sc[3].scatter(int_resids, maths_resids, color = beta_colors[5], alpha = 0.7)
+ax_sc[3].scatter(int_resids, maths_resids, color = beta_colors[5], alpha = 0.35, s = 25)
 
 ax_sc[3].plot(int_resids, int_resids * slope + intercept, 'k')
 sns.despine()
 
-ax_sc[3].set_xlabel("InT (Age controlled)")
+ax_sc[3].set_xlabel("IntT (Age controlled)")
 ax_sc[3].set_ylabel("Mathematics Attainment\n(Age controlled)")
 
 ax_sc[0].text(0.1, 0.90, "r = {:3.3f}".format(r_value1),  transform=ax_sc[0].transAxes)
@@ -117,7 +115,16 @@ ax_sc[1].text(0.1, 0.90, "r = {:3.3f}".format(r_value2),  transform=ax_sc[1].tra
 ax_sc[2].text(0.1, 0.90, "r = {:3.3f}".format(r_value3),  transform=ax_sc[2].transAxes)
 ax_sc[3].text(0.1, 0.90, "r = {:3.3f}".format(r_value4),  transform=ax_sc[3].transAxes)
 
-plt.subplots_adjust(top = 0.90, bottom = 0.31, left = 0.07, right = 0.97, hspace = 0.2, wspace = 0.63)
+
+[ax_sc[i].text(-0.1, 1.22, label, transform=ax_sc[i].transAxes,va='top', ha='right', fontsize = 18) for i, label in enumerate(['a', 'b', 'c', 'd'])]
+
+
+plt.subplots_adjust(top=0.84,
+                    bottom=0.2,
+                    left=0.08,
+                    right=0.945,
+                    hspace=0.2,
+                    wspace=0.86)
 
 plt.show()
 

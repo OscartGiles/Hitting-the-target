@@ -12,7 +12,7 @@ import numpy as np
 import matplotlib.pylab as plt
 import scipy.stats as sts
 import patsy
-from matplotlib.ticker import MaxNLocator
+import matplotlib.ticker as ticker
 
 
 samples = pd.read_csv("..//MCMC_samples//maths_all_no_attainment.csv", index_col = 0) #Get the data
@@ -33,7 +33,7 @@ pred_string = "~" + pred_string
 sns.set_context("paper")
 sns.set_style("white")
 
-rdata = pd.read_csv("..//Raw_data//maths_data.csv")
+rdata = pd.read_csv("..//Raw_data//master_concat_data.csv")
 rdata = rdata.dropna()    
 
 
@@ -94,7 +94,7 @@ def calc_theta(eta, cutoffs, sigma, K):
     return theta
 
 
-
+x_labels = [str(i) for i in range(1, 14+1)]
 #Plot the effect of eta with mean cuts and sigma
 plus_eta = 8.35 * 2 * beta['beta.3'].values
 
@@ -105,26 +105,59 @@ p_contrast = (p2[:,4:].sum(axis = 1) - p1[:,4:].sum(axis = 1))
 
 width = 0.4
 offset = 0.2
-f1, ax1 = plt.subplots(1,2)
-ax1[0].bar(np.array(range(14))-offset, p1.mean(0), width =width, alpha = 0.75)
-ax1[0].bar(np.array(range(14))+offset, p2.mean(0), width = width, alpha = 0.75)
+f1, ax1 = plt.subplots(1,2, sharex = True, figsize = (6, 3))
+ax1[0].bar(np.array(range(1, 14+1))-offset, p1.mean(0), width =width, label = r"$\mu_1$", color = '#ED9340', alpha = 0.8)
+ax1[0].bar(np.array(range(1, 14+1))+offset, p2.mean(0), width = width, label = r"$\mu_2$", color = '#003C96', alpha = 0.8)
 
-ax1[0].xaxis.set_major_locator(MaxNLocator(integer=True))
-ax1[0].set_xticklabels(np.arange(1,15))
 
-ax1[0].set_xlabel("Maths Outcome")
-ax1[0].set_ylabel("P(Maths Outcome)")
-ax1[0].set_xlim([0, 8])
+ax1[0].set_xlabel("Obs Attainment Score (y)")
+ax1[0].set_ylabel(r"P(y$\vert \mu$)")
+ax1[0].legend(title = "Latent\nAttainment Score",   loc = 1)
+
 sns.despine()
 
-sns.kdeplot(p1[:,4:].sum(axis = 1), ax = ax1[1], shade = True, label = "5")
-sns.kdeplot(p2[:,4:].sum(axis = 1), ax = ax1[1], shade = True, label = "5 + IntT typical range")
-ax1[1].set_xlabel(r"P(Maths Outcome $\geq$ 5)" )
-ax1[1].get_yaxis().set_ticks([])
-ax1[1].legend(title = r"$\mu$ value", edgecolor = "k", bbox_to_anchor = (0.65, 1), frameon = True)
+
+
+#Plot 2
+prob_ratio = np.log(p2/p1)
+
+N = 100 #Number of samples to plot
+
+idx = np.random.randint(0, N, size = N)
+
+
+for samp_idx in idx:
+    
+    
+    ax1[1].plot(range(1, 14+1), prob_ratio[samp_idx], alpha = 0.05, color = 'k')
+    
+ax1[1].plot(range(1, 14+1), prob_ratio.mean(0), alpha = 1, color = 'k')    
+ax1[1].axhline(0, color = 'k', linestyle = '--')
+ax1[1].set_xlabel("Obs Attainment Score (y)")
+ax1[1].set_ylabel(r"$log[P(y \vert \mu_2)$ / $P(y \vert \mu_1)]$")
+
+
+#[ax1[i].xaxis.set_major_locator(MaxNLocator(integer=True)) for i in range(2)]
+#[ax1[i].set_xticklabels(np.arange(1,15)) for i in range(2)]
+[ax1[i].set_xlim([1, 13]) for i in range(2)]
+
+
 sns.despine()
 
-p_contrast = (p2[:,4:].sum(axis = 1) - p1[:,4:].sum(axis = 1))
 
+#ax1[0].xaxis.set_major_locator(MaxNLocator(integer=True))
+ax1[0].xaxis.set_major_locator(ticker.MultipleLocator(1))
+
+[ax1[i].text(0.02, 1.135, label, transform=ax1[i].transAxes,va='top', ha='right', fontsize = 18) for i, label in enumerate(['a', 'b'])]
+
+
+plt.subplots_adjust(top=0.877,
+                    bottom=0.167,
+                    left=0.111,
+                    right=0.966,
+                    hspace=0.2,
+                    wspace=0.283)
+
+plt.show()
 
 
