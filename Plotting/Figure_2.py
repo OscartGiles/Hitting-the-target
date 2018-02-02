@@ -26,7 +26,7 @@ steeringA = pd.read_csv("ref_paths/random_a.ref", sep = '\t', names = ['time', '
 y_max = 163
 x_max = 260
 
-plt.figure()
+plt.figure(figsize = (6,4))
 plt.axis('equal')
 plt.plot(steeringA[:,2], steeringA[:,1], color = 'k')
 
@@ -54,7 +54,7 @@ plt.axis('off')
 ##Plot Steering B
 steeringB = pd.read_csv("ref_paths/random_b.ref", sep = '\t', names = ['time', 'x', 'y']).values
 
-plt.figure()
+plt.figure(figsize = (6,4))
 plt.axis('equal')
 plt.plot(steeringB[:,2], steeringB[:,1], color = 'k')
 
@@ -81,7 +81,7 @@ plt.axis('off')
 ##Plot figure 8
 fig8 = pd.read_csv("ref_paths/reference_path_figure8.ref", sep = '\t', names = ['time', 'x', 'y']).values
 
-plt.figure()
+plt.figure(figsize = (6,4))
 plt.axis('equal')
 plt.plot(fig8[:,2], fig8[:,1], color = 'k')
 plt.plot(fig8[15,2], fig8[15,1], marker = 'o', markeredgecolor = 'k', markerfacecolor = '0.95', markersize = 15)
@@ -102,7 +102,7 @@ plt.ylim([-5, y_max+5])
 
 plt.axis('off')
 
-plt.figure()
+plt.figure(figsize = (6,4))
 plt.axis('equal')
 plt.plot(fig8[:,2], fig8[:,1], '-', dashes=(5, 12), color = 'k')
 plt.plot(fig8[15,2], fig8[15,1], marker = 'o', markeredgecolor = 'k', markerfacecolor = '0.95', markersize = 15)
@@ -143,15 +143,15 @@ start_pos[1] = start_pos[1] * - 1 + x_max
 end_pos [1] = end_pos [1] * - 1 + x_max
 
 
-plt.figure()
+plt.figure(figsize = (4,6))
 plt.axis('equal')
-plt.plot(dots_pos[:,0], dots_pos[:,1], 'o', markerfacecolor = 'w', markeredgecolor = 'k')
+plt.plot(dots_pos[:,0], dots_pos[:,1], 'o', markerfacecolor = 'w', markeredgecolor = 'k', ms = 15)
 
 plt.plot(start_pos[0], start_pos[1], 'o', color = 'r', ms = 1)
 plt.plot(end_pos[0], end_pos[1], 'o', color = 'b', ms = 1)
 
-plt.plot(dots_pos[3,0], dots_pos[3,1], 'o', markerfacecolor = 'k', markeredgecolor = 'k')
-plt.plot(dots_pos[4,0], dots_pos[4,1], 'o',  markerfacecolor = '0.8', markeredgecolor = 'k')
+plt.plot(dots_pos[3,0], dots_pos[3,1], 'o', markerfacecolor = 'k', markeredgecolor = 'k', ms = 15)
+plt.plot(dots_pos[4,0], dots_pos[4,1], 'o',  markerfacecolor = '0.8', markeredgecolor = 'k', ms = 15)
 
 #Draw bored
 plt.gca().add_patch(

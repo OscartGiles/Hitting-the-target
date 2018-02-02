@@ -179,7 +179,7 @@ all_beta[:,-1, -1] = all_beta[:,-1, -1] * -1
 ##Effect size plots
 names = x_names[2:]
 task_names = ['IntT', 'Steering', 'Aiming',  'Tracking']
-model_names = ['Excluding Reading and Writing', 'Including Reading and Writing']
+model_names = ['Mathematics', 'Mathematics\n(Reading and Writing predictors)']
 #model_names = ['One']
 samp_names = range(all_beta.shape[0])
 
