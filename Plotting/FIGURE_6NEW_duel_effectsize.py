@@ -32,9 +32,16 @@ x_names2 = [r'$\beta_0$', 'Age', 'InT', 'Steering', 'Aiming',
 #sp.errorplot(x_names, beta.values, ls = "None")
 
 
-sns.set_context("paper", rc= {'axes.labelsize': 10, 'xtick.labelsize': 9, 'ytick.labelsize': 9})
-sns.set_style("white", {'xtick.major.size': 4,
-               'xtick.minor.size': 2})
+sns.set(context = "paper", style = "white", 
+        rc= {'axes.labelsize': 10, 
+             'axes.titlesize': 12,
+             'xtick.labelsize': 10,
+             'ytick.labelsize':10,
+             'savefig.dpi' : 1000,
+             'xtick.major.size': 2,
+             'xtick.minor.size': 0.0,}, 
+            font = 'sans-serif')
+
 
 
 effect_sd = [8.35, 0.48, 0.34, 10.91, 11.04, 9.50] #These values are obtained from the SUR Bayesian analysis
@@ -204,7 +211,7 @@ bp.error_plot(x = "Task", y = 0, hue = "Model", data = s,
               hpd_alpha = np.std, ax = ax[1], order = task_names, hue_order = model_names)
 
 
-plt.legend(title = "Model predictors", bbox_to_anchor = (0.33, 0.75))
+plt.legend(title = "Model predictors", bbox_to_anchor = (0.33, 0.75), labelspacing = 1.05)
 #ax.set_ylim([0, 0.9])
 ax[1].set_xlabel("Sensorimotor Task")
 ax[1].set_ylabel("Equivalent change in age (months)")

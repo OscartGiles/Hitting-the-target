@@ -32,14 +32,14 @@ beta_colors = [(0.8941176470588236, 0.10196078431372549, 0.10980392156862745),
  (1.0, 0.4980392156862745, 0.0)]
 
 #Offline colors
-#beta_colors = ['k' for i in range(6)]
+beta_colors = ['k' for i in range(6)]
 
 sns.set(context = "paper", style = "white", 
         rc= {'axes.labelsize': 10, 
              'axes.titlesize': 12,
              'xtick.labelsize': 10,
              'ytick.labelsize':10,
-             'savefig.dpi' : 500}, 
+             'savefig.dpi' : 1000}, 
             font = 'sans-serif')
 
 

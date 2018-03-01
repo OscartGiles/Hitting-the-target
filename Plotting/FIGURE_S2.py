@@ -30,8 +30,15 @@ preds = ['age', 'interception', 'Ckat_Tracing', 'Ckat_aiming',
 pred_string = "".join([" {} +".format(i) for i in preds])[:-2]
 pred_string = "~" + pred_string
 
-sns.set_context("paper")
-sns.set_style("white")
+sns.set(context = "paper", style = "white", 
+        rc= {'axes.labelsize': 10, 
+             'axes.titlesize': 12,
+             'xtick.labelsize': 10,
+             'ytick.labelsize':10,
+             'savefig.dpi' : 1000,
+             'xtick.major.size': 2,
+             'xtick.minor.size': 0.0,}, 
+            font = 'sans-serif')
 
 rdata = pd.read_csv("..//Raw_data//master_concat_data.csv")
 rdata = rdata.dropna()    

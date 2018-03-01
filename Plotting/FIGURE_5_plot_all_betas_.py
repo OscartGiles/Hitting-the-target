@@ -41,7 +41,7 @@ sns.set(context = "paper", style = "white",
              'axes.titlesize': 12,
              'xtick.labelsize': 10,
              'ytick.labelsize':10,
-             'savefig.dpi' : 500,
+             'savefig.dpi' : 1000,
              'xtick.major.size': 2,
              'xtick.minor.size': 0.0,}, 
             font = 'sans-serif')
