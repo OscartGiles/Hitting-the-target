@@ -7,3 +7,6 @@ MCMC_samples/readings_samples.csv
 MCMC_samples/writings_samples.csv
 *.docx
 
+Article/*
+Review_round_2/*
+
