@@ -13,7 +13,7 @@ This directory contains all the files and data required to reproduce the analysi
 
 #### Raw_data:
 
-The raw data is provided in the '//Raw_data//' subdirectory in the file "master_concat_data.csv". Each row is a participant and each column is a variable. A brief decriptiuon of each variable is given below
+The raw data is provided in the 'Raw_data/' subdirectory in the file "master_concat_data.csv". Each row is a participant and each column is a variable. A brief decriptiuon of each variable is given below
 
 * participant: A participant number
 * interception: The interceptive score metric (IntT)
@@ -29,7 +29,7 @@ The raw data is provided in the '//Raw_data//' subdirectory in the file "master_
 
 #### Fit the Stan models:
 
-Four R files are containted in the parent directory as well as two .stan files which provide the code for the statistical models. Running each of these R files will fit the statistical models and populate the "/MCMC_samples"" subdirectory with the results of the Bayesian model fitting. These samples are then used by the scripts in the "/Plotting" subdirectory to produce the figures found in the manuscript. Running the files will require R and RStan (http://mc-stan.org/users/interfaces/rstan).
+Four R files are containted in the parent directory as well as two .stan files which provide the code for the statistical models. Running each of these R files will fit the statistical models and populate the "MCMC_samples/"" subdirectory with the results of the Bayesian model fitting. These samples are then used by the scripts in the "Plotting/" subdirectory to produce the figures found in the manuscript. Running the files will require R and RStan (http://mc-stan.org/users/interfaces/rstan).
 
 #### Analyses and figure plotting:
 
