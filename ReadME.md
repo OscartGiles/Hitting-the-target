@@ -35,4 +35,4 @@ Four R files are containted in the parent directory as well as two .stan files w
 
 All plotting and further analysis fo the MCMC samples was conducted using Python 3. The easiest way to ensure you have all the python libraries used by the analysis is to install the Anaconda distribution of python (https://www.anaconda.com/).
 
-The "//Plotting//" subdirectory contains python scripts which will recreate the plots in the manuscript. There is a seperate python file for each figure. You need to make sure that all the .R files in the parent directory have already been run (this may take several hours) in order to generate the MCMC sample files used for the figures. 
+The "Plotting/" subdirectory contains python scripts which will recreate the plots in the manuscript. There is a seperate python file for each figure. You need to make sure that all the .R files in the parent directory have already been run (this may take several hours) in order to generate the MCMC sample files used for the figures. 
