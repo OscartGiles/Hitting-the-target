@@ -9,7 +9,7 @@ o.t.giles@leeds.ac.uk
 
 #### Overview:
 
-This directory contains all the files and data required to reproduce the analysis in "Hitting the Target: Mathematical attainment in children is related to interceptive timing ability".
+This directory contains all the files and data required to reproduce the analysis in "Hitting the Target: Mathematical attainment in children is related to interceptive timing ability" (http://journals.sagepub.com/doi/abs/10.1177/0956797618772502)
 
 #### Raw_data:
 
