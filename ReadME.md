@@ -4,7 +4,7 @@
 [Oscar T. Giles](https://github.com/OscartGiles), Katy A. Shire, Liam J.B. Hill, Faisal Mushtaq, Amanda Waterman, Raymond J. Holt, Peter R. Culmer, Justin H. G. Williams, Richard M. Wilkie, Mark Mon-Williams
 
 ### Email:
-o.t.giles@leeds.ac.uk
+ogiles@turing.ac.uk
 
 
 #### Overview:
